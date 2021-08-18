@@ -21,13 +21,17 @@ class mentor(models.Model):
     recruit_number = models.IntegerField(default=0, blank=True) #모집정원
     #아래부터는 자세한사항 미정이므로 TextField로 임시설정, verbose_name='봉사 분야') #봉사 분야
     recruit_center = models.TextField(blank=True) #모집기관
+    
+    center_latitude = models.FloatField(default=0.0) #모집기관 위도
+    center_longitude = models.FloatField(default=0.0) #모집기관 경도
+
     volun_place = models.TextField(blank=True)# 봉사장소
     volun_for = models.TextField(blank=True)#봉사대상
     volun_type = models.TextField(blank=True)#봉사 형식
     files = models.FileField(null=True, blank=True, upload_to="")#첨부파일
 
     def __str__(self):
-        return "{self.id}: {self.title}"
+        return str(self.id) + ": " + str(self.title)
 
 
 
