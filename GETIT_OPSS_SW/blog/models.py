@@ -10,7 +10,7 @@ class mentor(models.Model):
     title = models.CharField(max_length=100) #글 제목
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) #related_name 필드?
     sexMentor_Choices = (('Male', '남자'), ('Female', '여자'))     # 튜플의 앞 값은 DB에 저장되는 값, 뒤의 값은 페이지나 폼에 표시하는 값
-    sexMentor = models.CharField(max_length=4, choices=sexMentor_Choices)
+    sexMentor = models.CharField(max_length=6, choices=sexMentor_Choices)
     ageMentor = models.IntegerField(blank=True)
     pub_date = models.DateTimeField(auto_now_add=True) #자동으로 글 올린 날짜 저장. 수정불가 #생성날짜
     recruit_startdate = models.DateField(null=True, default=timezone.now) #모집시작일
@@ -20,8 +20,8 @@ class mentor(models.Model):
     volun_times = models.TextField(blank=True) #봉사시간대
     volun_day = models.TextField(blank=True) #그냥 입력하게 하도록 #봉사요일
     recruit_number = models.IntegerField(default=0, blank=True) #모집정원
-    volunType_Chocies = (('Onine', '온라인'), ('Offline', '오프라인'))
-    volunType = models.CharField(max_length=10, choices=volunType_Chocies)
+    volunType_Choices = (('Onine', '온라인'), ('Offline', '오프라인'))
+    volunType = models.CharField(max_length=10, choices=volunType_Choices)  
 
     #아래부터는 자세한사항 미정이므로 TextField로 임시설정, verbose_name='봉사 분야') #봉사 분야
     recruit_center = models.TextField(blank=True) #모집기관
@@ -39,7 +39,7 @@ class mentee(models.Model):
     title = models.CharField(max_length=100) #글 제목
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) #related_name 필드?
     sexMentee_Choices = (('Male', '남자'), ('Female', '여자'))     # 튜플의 앞 값은 DB에 저장되는 값, 뒤의 값은 페이지나 폼에 표시하는 값
-    sexMentee = models.CharField(max_length=4, choices=sexMentee_Choices)
+    sexMentee = models.CharField(max_length=6, choices=sexMentee_Choices)
     ageMentee = models.IntegerField(blank=True)
     pub_date = models.DateTimeField(auto_now_add=True) #자동으로 글 올린 날짜 저장. 수정불가 #생성날짜
     mentoringStart_times = models.DateField(null=True, default=timezone.now)    #원하는 멘토링 시작 시각
