@@ -1,4 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
     <h1>멘토 글작성</h1>
+
+    <form method = "POST">
+        {% csrf_token %}
+
+        <dif class = "form-group">
+            <label for="title"> 제목</label>
+            <input type="text" class="form-control" id="title" name="title">
+        </dif>
+    </form>
+
+
+
 {% endblock %}
