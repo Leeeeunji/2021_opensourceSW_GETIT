@@ -3,3 +3,12 @@ from .models import mentor
 
 def main(request):
     return render(request, 'main.html')
+
+def mentor_post(request):
+    return render(request, 'mentor_post.html')
+
+def mentor_list(request):
+    return render(request, 'mentor_list.html')
+
+def mentor_detail(request):
+    return render(request, 'mentor_detail.html')
