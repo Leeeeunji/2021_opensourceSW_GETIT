@@ -2,8 +2,6 @@ from django.db import models
 from django.conf import settings
 from django.utils import timezone
 from django.db.models.deletion import CASCADE
-from django.contrib.auth.models import User
-
 
 # Create your models here.
 class mentor(models.Model): 
@@ -32,7 +30,4 @@ class mentor(models.Model):
 
     def __str__(self):
         return str(self.id) + ": " + str(self.title)
-
-
-
 

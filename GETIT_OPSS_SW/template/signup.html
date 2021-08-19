@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="wrapper" style="text-align: center;">
+    <h1>회원가입</h1>
+    <form method="POST">
+        {% csrf_token %}
+        아이디: <br>
+        <input name="user-username" type="text">
+        <br>
+        이름 : <br>
+        <input name="name" type="text">
+        <br>
+        비밀번호: <br>
+        <input name="password1" type="password">
+        <br>
+        비밀번호 확인: <br>
+        <input name="password2" type="password">
+        <br>
+        생년월일: <br>
+        <input name="birth_date" type="text">
+        <br>
+        <br>
+        이메일: <br>
+        <input name="email" type="email">
+        <br>
+        휴대폰 : <br>
+        <input name="phone" type="phone">
+        <br><br>
+        <input type="submit" class="btn btn-primary" value="Sign Up">
+    </form>
+</div>
+{% endblock %}

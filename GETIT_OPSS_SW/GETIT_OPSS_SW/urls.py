@@ -18,8 +18,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views import *
+from accounts.views import signup, login_request
+from blog.views import main
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('blog/', include('blog.urls')),
+    path('signup/', signup, name="signup" ),
+    path('login/', login_request, name="login"),
+    path('main/', main, name="main"),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
