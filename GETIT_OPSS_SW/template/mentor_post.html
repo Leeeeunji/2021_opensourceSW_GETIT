@@ -1,15 +1,101 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>멘토 글작성</h1>
 
-    <form method = "POST">
-        {% csrf_token %}
+<!--               
+    border-right: 1px solid #000; 오른쪽 경계선 그리기
+-->
+    <link rel="stylesheet" href="../../static/css/mentor_post.css">
 
-        <dif class = "form-group">
-            <label for="title"> 제목</label>
-            <input type="text" class="form-control" id="title" name="title">
-        </dif>
-    </form>
+   <!DOCTYPE html>
+   <html lang="en">
+       <head>
+           <meta charset="UTF-8"/>
+           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+           <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+           <title>Mento Board</title>
+
+           <style>
+           html,
+           body{
+               margin: 0;
+               padding: 0;
+           }
+           .blind{
+               position:absolute;
+               top: 0;
+               left: 0;
+               width: 1px;
+               height: 1px;
+               margin: -1px;
+               overflow: hidden;
+               clip: rect(0, 0, 0, 0);
+           }
+
+           header{
+               border-bottom: 1px solid #000;
+
+           }
+           a{
+               text-decoration: none;
+           }
+           .side_toggle_btn::before{
+            
+               content: ">";
+               display: inline-block;
+               width: 50px;
+               line-height: 50px;
+               font-size: 24px;
+               text-align: center;
+               background-color: rgb(255, 212, 0);
+           }
+
+           .side_input:checked + .side_toggle_btn::before{
+               content: "<";
+           }
+
+           .side_input:checked ~.side_list{
+               left:0;
+           }
+           .side_list{
+               position: absolute;
+               left: -200px;
+               top: 50px;
+               bottom: 0;
+               border-right: 1px solid #000;
+               width: 200px;
+               font-size: 24px;
+               transition: 0.3s ease-in;
+               background-color: rgb(255, 212, 0);
+               
+
+           }
+
+           .side_link{
+               display: block;
+               text-align: center;
+               padding: 40px 0;
+               border-bottom :1px solid #000;
+           }
+
+           
+           
+           </style>
+
+       </head>
+
+       <body>
+           <header>
+               <input type="checkbox" id="side_btn" class="side_input blind"/>
+               <label for="side_btn" class="side_toggle_btn"></label>
+               <div class="side_list">
+                   <a href="#" class="side_link">개인 교육</a>
+                   <a href="#" class="side_link">단체 교육</a>
+
+               </div>
+           </header>
+       </body>
+   </html>
 
 
 
