@@ -4,98 +4,139 @@
 <!--               
     border-right: 1px solid #000; 오른쪽 경계선 그리기
 -->
-    <link rel="stylesheet" href="../../static/css/mentor_post.css">
+<link rel="stylesheet" href="../../static/css/mentor_post.css">
 
-   <!DOCTYPE html>
-   <html lang="en">
-       <head>
-           <meta charset="UTF-8"/>
-           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-           <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+<!DOCTYPE html>
+<html lang="en">
 
-           <title>Mento Board</title>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-           <style>
-           html,
-           body{
-               margin: 0;
-               padding: 0;
-           }
-           .blind{
-               position:absolute;
-               top: 0;
-               left: 0;
-               width: 1px;
-               height: 1px;
-               margin: -1px;
-               overflow: hidden;
-               clip: rect(0, 0, 0, 0);
-           }
+    <title>Mento Board</title>
 
-           header{
-               border-bottom: 1px solid #000;
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
 
-           }
-           a{
-               text-decoration: none;
-           }
-           .side_toggle_btn::before{
-            
-               content: ">";
-               display: inline-block;
-               width: 50px;
-               line-height: 50px;
-               font-size: 24px;
-               text-align: center;
-               background-color: rgb(255, 212, 0);
-           }
+        .blind {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+        }
 
-           .side_input:checked + .side_toggle_btn::before{
-               content: "<";
-           }
+        header {
+            border-bottom: 1px solid #000;
 
-           .side_input:checked ~.side_list{
-               left:0;
-           }
-           .side_list{
-               position: absolute;
-               left: -200px;
-               top: 50px;
-               bottom: 0;
-               border-right: 1px solid #000;
-               width: 200px;
-               font-size: 24px;
-               transition: 0.3s ease-in;
-               background-color: rgb(255, 212, 0);
-               
+        }
 
-           }
+        a {
+            text-decoration: none;
+        }
 
-           .side_link{
-               display: block;
-               text-align: center;
-               padding: 40px 0;
-               border-bottom :1px solid #000;
-           }
+        .side_toggle_btn::before {
 
-           
-           
-           </style>
+            content: ">";
+            display: inline-block;
+            width: 50px;
+            line-height: 50px;
+            font-size: 24px;
+            text-align: center;
+            background-color: rgb(255, 212, 0);
+        }
 
-       </head>
+        .side_input:checked+.side_toggle_btn::before {
+            content: "<";
+        }
 
-       <body>
-           <header>
-               <input type="checkbox" id="side_btn" class="side_input blind"/>
-               <label for="side_btn" class="side_toggle_btn"></label>
-               <div class="side_list">
-                   <a href="#" class="side_link">개인 교육</a>
-                   <a href="#" class="side_link">단체 교육</a>
+        .side_input:checked~.side_list {
+            left: 0;
+        }
 
-               </div>
-           </header>
-       </body>
-   </html>
+        .side_list {
+            position: absolute;
+            left: -200px;
+            top: 50px;
+            bottom: 0;
+            border-right: 1px solid #000;
+            width: 200px;
+            font-size: 24px;
+            transition: 0.3s ease-in;
+            background-color: rgb(255, 212, 0);
+
+
+        }
+
+        .side_link {
+            display: block;
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid #000;
+        }
+
+        .main {
+            margin-left: 200px;
+            font-size: 20px;
+            padding: 0px 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <input type="checkbox" id="side_btn" class="side_input blind" />
+        <label for="side_btn" class="side_toggle_btn"></label>
+        <div class="side_list">
+            <a href="#" class="side_link">개인 교육</a>
+            <a href="#" class="side_link">단체 교육</a>
+
+        </div>
+    </header>
+
+
+
+
+    <head>
+        <meta charset="UTF-8">
+    </head>
+
+    <body>
+        <h1>Mento 글쓰기 페이지</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <h4>제목</h4>
+            <input type="text" name="postname">
+            <h4>내용</h4>
+            <textarea rows="10" cols="50" name="contents"></textarea><br>
+            <input type="file" name="mainphoto"><br>
+
+            <br>
+        </br>
+            <div class="writebtn">
+                <div class="writeeff" input type="submit"></div>
+                <a href="#"> 글쓰기 </a>
+              </div>
+
+        </form>
+    </body>
+
+</body>
+
+</html>
 
 
 
