@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import mentor
+from .models import mentor, mentee
 
 def main(request):
     return render(request, 'main.html')
