@@ -24,9 +24,12 @@ from blog.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('base/', base, name="base"), 
+    path('accounts/', include('accounts.urls')),
 
     path('signup/', signup, name="signup" ),
     path('login/', login_request, name="login"),
+    path('mypage/<str:username>', mypage, name="mypage"),
+
     path('main/', main, name="main"),
     path('mentor_post/', mentor_post, name="mentor_post"),
     path('mentor_list/', mentor_list, name="mentor_list"),

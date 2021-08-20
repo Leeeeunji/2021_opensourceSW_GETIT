@@ -15,3 +15,6 @@ def mentor_detail(request):
 
 def base(request):
     return render(request, 'base.html')
+
+def mypage(request):
+    return render(request, 'mypage.html')
