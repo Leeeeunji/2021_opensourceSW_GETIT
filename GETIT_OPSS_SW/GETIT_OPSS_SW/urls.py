@@ -23,6 +23,8 @@ from blog.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('base/', base, name="base"), 
+
     path('signup/', signup, name="signup" ),
     path('login/', login_request, name="login"),
     path('main/', main, name="main"),

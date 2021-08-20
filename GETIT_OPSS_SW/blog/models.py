@@ -9,9 +9,6 @@ class mentor(models.Model):
     # 모집기관, 등록기관(위치), 봉사장소, 봉사대상, 활동구분(온/오프라인), 첨부파일
     title = models.CharField(max_length=100) #글 제목
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) #related_name 필드?
-    sexMentor_Choices = (('Male', '남자'), ('Female', '여자'))     # 튜플의 앞 값은 DB에 저장되는 값, 뒤의 값은 페이지나 폼에 표시하는 값
-    sexMentor = models.CharField(max_length=6, choices=sexMentor_Choices)
-    ageMentor = models.IntegerField(blank=True)
     pub_date = models.DateTimeField(auto_now_add=True) #자동으로 글 올린 날짜 저장. 수정불가 #생성날짜
     recruit_startdate = models.DateField(null=True, default=timezone.now) #모집시작일
     recruit_endDate = models.DateField(null=True, default=timezone.now) #모집종료일
@@ -21,7 +18,7 @@ class mentor(models.Model):
     volun_day = models.TextField(blank=True) #그냥 입력하게 하도록 #봉사요일
     recruit_number = models.IntegerField(default=0, blank=True) #모집정원
     volunType_Choices = (('Onine', '온라인'), ('Offline', '오프라인'))
-    volunType = models.CharField(max_length=10, choices=volunType_Choices)  
+    volunType = models.CharField(null=True, max_length=10, choices=volunType_Choices)  
 
     #아래부터는 자세한사항 미정이므로 TextField로 임시설정, verbose_name='봉사 분야') #봉사 분야
     recruit_center = models.TextField(blank=True) #모집기관
@@ -32,32 +29,25 @@ class mentor(models.Model):
     files = models.FileField(null=True, blank=True, upload_to="")#첨부파일
 
     def __str__(self):
-        return str(self.id) + ": " + str(self.title)
+        return "멘토 " + str(self.id) + "번 : " + str(self.title)
 
 class mentee(models.Model): 
     # 작성자, 원하는 학습 분야, 개인/단체, 성별, 나이, 원하는 멘토링 시간대
     title = models.CharField(max_length=100) #글 제목
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) #related_name 필드?
-    sexMentee_Choices = (('Male', '남자'), ('Female', '여자'))     # 튜플의 앞 값은 DB에 저장되는 값, 뒤의 값은 페이지나 폼에 표시하는 값
-    sexMentee = models.CharField(max_length=6, choices=sexMentee_Choices)
-    ageMentee = models.IntegerField(blank=True)
     pub_date = models.DateTimeField(auto_now_add=True) #자동으로 글 올린 날짜 저장. 수정불가 #생성날짜
     mentoringStart_times = models.DateField(null=True, default=timezone.now)    #원하는 멘토링 시작 시각
     mentoringEnd_times = models.DateField(null=True, default=timezone.now)      #원하는 멘토링 종료 시각
-    mentoringType_Choices = (('Onine', '온라인'), ('Offline', '오프라인'))
-    mentoringType = models.CharField(max_length=10, choices=mentoringType_Choices)
-    partMentor_Chocies = (('Study', '학업'), ('Digital', '디지털'))
-    partMentor = models.CharField(max_length=10, choices=partMentor_Chocies)
-
-    
     #아래부터는 자세한사항 미정이므로 TextField로 임시설정, verbose_name='봉사 분야') #봉사 분야
     recruit_center = models.TextField(blank=True) #모집기관
-    
     center_latitude = models.FloatField(default=0.0) #모집기관 위도
     center_longitude = models.FloatField(default=0.0) #모집기관 경도
-
     volun_place = models.TextField(blank=True)# 봉사장소
     files = models.FileField(null=True, blank=True, upload_to="")#첨부파일
+    mentoringType_Choices = (('Online', '온라인'), ('Offline', '오프라인'))
+    mentoringType = models.CharField(null=True, max_length=10, choices=mentoringType_Choices)#
+    partMentor_Choices = (('Study', '학업'), ('Digital', '디지털'))
+    partMentor = models.CharField(null=True, max_length=10, choices=partMentor_Choices )#
 
     def __str__(self):
-        return str(self.id) + ": " + str(self.title)
+        return "멘티 " + str(self.id) + "번 : " + str(self.title)
