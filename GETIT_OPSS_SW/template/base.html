@@ -13,16 +13,43 @@
     <link rel="stylesheet" href="../../static/css/base.css">
     <style>
     @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+        #header {
+            background-color: aliceblue;
+            height: 100px;
+        }
+        #nav {
+            background-color: aquamarine;
+            width: 200px;
+            height: 300px;
+            float: left;
+        }
+        #section {
+            width: 200px;
+            text-align: left;
+            float: left;
+            padding: 10px;
+        }
+        #footer {
+            background-color: blanchedalmond;
+            height: 100px;
+            clear: both;
+        }
+        #header, #nav, #section, #footer { text-align:center; }
+        #header, #footer {line-height: 100px;}
+        #nav, #section {line-height: 240px;}
     </style>
 </head>
 <body>
-    <div class="nav-wrapper">
-        
+    <div id="header" class="nav-wrapper">
+        HEADER 영역
     </div>
     <div class ="con"> 
         {% block content %}
             <!-- 다른 템플릿에서 이 템플릿을 상속받아 사용할 때 이 위치에 코드들이 적용된다. -->
         {% endblock %}
+    </div>
+    <div id="footer">
+        <h2>FOOTER 영역</h2>
     </div>
  </body>
 </html>
