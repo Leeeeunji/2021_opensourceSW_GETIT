@@ -22,6 +22,7 @@ from accounts.views import signup, login_request
 from blog.views import *
 
 urlpatterns = [
+    path('chat/', include('chat.urls')),
     path('admin/', admin.site.urls),
     path('signup/', signup, name="signup" ),
     path('login/', login_request, name="login"),
