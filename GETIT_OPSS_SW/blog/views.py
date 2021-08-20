@@ -13,5 +13,11 @@ def mentor_list(request):
 def mentor_detail(request):
     return render(request, 'mentor_detail.html')
 
+def mentee_post(request):
+    return render(request, 'mentee_post.html')
+
+def mentee_list(request):
+    return render(request, 'mentee_list.html')
+
 def base(request):
     return render(request, 'base.html')

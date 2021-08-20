@@ -31,4 +31,6 @@ urlpatterns = [
     path('mentor_post/', mentor_post, name="mentor_post"),
     path('mentor_list/', mentor_list, name="mentor_list"),
     path('mentor_detail/', mentor_detail, name="mentor_detail"),
+    path('mentee_post/', mentee_post, name="mentee_post"),
+    path('mentee_list/', mentee_list, name="mentee_list"),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
