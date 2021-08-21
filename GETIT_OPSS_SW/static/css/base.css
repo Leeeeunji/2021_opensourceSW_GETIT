@@ -1,0 +1,62 @@
+body {
+    margin : 0;
+}
+
+.header {
+    background-color: rgb(110, 187, 255);
+    height: 100px;
+    display: block; 
+    width: 100%;
+}
+
+.hello {
+    
+    font-size: 20px;
+    height: 100px;
+    margin-right: 10px;
+    display: inline-block;
+    
+}
+
+.condition {
+    font-size: 20px;
+    margin-left: 5px;
+    margin-right: 30px;
+    height: 100px;
+    display: inline-block;
+}
+
+.condition2 {
+    font-family:Nanum Gothic;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-right: 30px;
+}
+
+.nav-item {
+    margin-top: 20px;
+    float: right;
+}
+ 
+#nav {
+    background-color: aquamarine;
+    width: 200px;
+    height: 300px;
+    float: left;
+}
+#section {
+    width: 200px;
+    text-align: left;
+    float: left;
+    padding: 10px;
+}
+#footer {
+    background-color: blanchedalmond;
+    height: 100px;
+    clear: both;
+}
+
+#nav, #section, #footer { text-align:center; }
+#footer {line-height: 100px;}
+#nav, #section {line-height: 240px;}
+

@@ -13,16 +13,37 @@
     <link rel="stylesheet" href="../../static/css/base.css">
     <style>
     @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+       
     </style>
 </head>
 <body>
-    <div class="nav-wrapper">
-        
+    <div class="header">
+        <div class="nav-item">
+            {% if user.is_authenticated %}
+                <div class="hello">
+                    <p style="font-family:Nanum Gothic;" >안녕하세요, {{user.username}}님! </p>
+                </div>
+                <div class="condition">
+                    <a href="javascript:{document.getElementById('logout').submit()}" style="font-family:Nanum Gothic;">Logout</a>
+                    <form id="logout" method="POST" action="{% url 'logout' %}">
+                        {%csrf_token%} <input type="hidden" />
+                    </form>
+                </div>
+                {% else %}
+                <div class="condition2">
+                    <a href="{% url 'signup' %}" style="margin-right:10px;">Signup</a>
+                    <a href="{% url 'login' %}">Login</a>
+                </div>
+            {% endif %}
+        </div>
     </div>
     <div class ="con"> 
         {% block content %}
             <!-- 다른 템플릿에서 이 템플릿을 상속받아 사용할 때 이 위치에 코드들이 적용된다. -->
         {% endblock %}
+    </div>
+    <div id="footer">
+        <h2>FOOTER 영역</h2>
     </div>
  </body>
 </html>

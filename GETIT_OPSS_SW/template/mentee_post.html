@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!--               
+    border-right: 1px solid #000; 오른쪽 경계선 그리기
+-->
+<link rel="stylesheet" href="../../static/css/mentee_post.css">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Mentee Board</title>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .blind {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+        }
+
+        header {
+            border-bottom: 1px solid #000;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .side_toggle_btn::before {
+
+            content: ">";
+            display: inline-block;
+            width: 50px;
+            line-height: 50px;
+            font-size: 24px;
+            text-align: center;
+            background-color: rgb(76, 172, 219);
+        }
+
+        .side_input:checked+.side_toggle_btn::before {
+            content: "<";
+        }
+
+        .side_input:checked~.side_list {
+            left: 0;
+        }
+
+        .side_list {
+            position: absolute;
+            left: -200px;
+            top: 50px;
+            bottom: 0;
+            border-right: 1px solid #000;
+            width: 200px;
+            font-size: 24px;
+            transition: 0.3s ease-in;
+            background-color: rgb(76, 172, 219);
+
+
+        }
+
+        .side_link {
+            display: block;
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid #000;
+        }
+
+        .main {
+            margin-left: 200px;
+            font-size: 20px;
+            padding: 0px 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <input type="checkbox" id="side_btn" class="side_input blind" />
+        <label for="side_btn" class="side_toggle_btn"></label>
+        <div class="side_list">
+            <a href="#" class="side_link">개인 교육</a>
+            <a href="#" class="side_link">단체 교육</a>
+
+        </div>
+    </header>
+
+
+
+
+    <head>
+        <meta charset="UTF-8">
+    </head>
+
+    <body>
+        <h1>Mentee 글쓰기 페이지</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <h4>제목</h4>
+            <input type="text" name="postname">
+            <h4>유저</h4>
+            <input type="text" name="user">
+            <h4>멘토링 방식</h4>
+            <input type="radio" id="online" value="온라인" name="mentoringWay">
+            <label for="online">온라인</label><br>
+            <input type="radio" id="offline" value="오프라인" name="mentoringWay">
+            <label for="offline">오프라인</label><br>
+            <h4>멘토링 분야</h4>
+            <input type="radio" id="study" value="학습" name="mentoringPart">
+            <label for="study">학습</label><br>
+            <input type="radio" id="digital" value="디지털" name="mentoringPart">
+            <label for="digital">디지털</label><br>
+            <h4>모집센터 (단체 멘토링일때만 기입)</h4>
+            <input type="text" name="center">
+            <h4>멘토링 시작 시각 (원하는 멘토링 시작 시각을 설정해주세요)</h4>
+            <input type="time" name="startTime">
+            <h4>멘토링 종료 시각 (원하는 멘토링 종료 시각을 설정해주세요)</h4>
+            <input type="time" name="endTime">
+            <h4>추가로 작성할 내용</h4>
+            <textarea rows="10" cols="50" name="contents"></textarea><br>
+            <input type="file" name="mainphoto"><br>
+
+            <br>
+        </br>
+            <div class="writebtn">
+                <div class="writeeff" input type="submit"></div>
+                <a href="#"> 글쓰기 </a>
+              </div>
+
+        </form>
+    </body>
+
+</body>
+
+</html>
+
+
+
+{% endblock %}
