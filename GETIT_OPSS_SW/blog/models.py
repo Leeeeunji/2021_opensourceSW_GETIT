@@ -13,10 +13,13 @@ class mentor(models.Model):
     # recruit_startdate = models.DateField(null=True, default=timezone.now) #모집시작일
     recruit_startdate = models.DateField(blank=True)
     recruit_endDate = models.DateField(blank=True) #모집종료일
+   
     volun_startDate = models.DateField(blank=True) #봉사시작일
     volun_endDate = models.DateField(blank=True) #봉사종료일
+   
     volun_times = models.TextField(blank=True) #봉사시간대
     volun_day = models.TextField(blank=True) #그냥 입력하게 하도록 #봉사요일
+   
     recruit_number = models.IntegerField(default=0, blank=True) #모집정원
     volunType_Choices = (('Onine', '온라인'), ('Offline', '오프라인'))
     volunType = models.CharField(null=True, max_length=10, choices=volunType_Choices)  
