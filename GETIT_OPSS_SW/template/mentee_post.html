@@ -119,7 +119,25 @@
             {% csrf_token %}
             <h4>제목</h4>
             <input type="text" name="postname">
-            <h4>내용</h4>
+            <h4>유저</h4>
+            <input type="text" name="user">
+            <h4>멘토링 방식</h4>
+            <input type="radio" id="online" value="온라인" name="mentoringWay">
+            <label for="online">온라인</label><br>
+            <input type="radio" id="offline" value="오프라인" name="mentoringWay">
+            <label for="offline">오프라인</label><br>
+            <h4>멘토링 분야</h4>
+            <input type="radio" id="study" value="학습" name="mentoringPart">
+            <label for="study">학습</label><br>
+            <input type="radio" id="digital" value="디지털" name="mentoringPart">
+            <label for="digital">디지털</label><br>
+            <h4>모집센터 (단체 멘토링일때만 기입)</h4>
+            <input type="text" name="center">
+            <h4>멘토링 시작 시각 (원하는 멘토링 시작 시각을 설정해주세요)</h4>
+            <input type="time" name="startTime">
+            <h4>멘토링 종료 시각 (원하는 멘토링 종료 시각을 설정해주세요)</h4>
+            <input type="time" name="endTime">
+            <h4>추가로 작성할 내용</h4>
             <textarea rows="10" cols="50" name="contents"></textarea><br>
             <input type="file" name="mainphoto"><br>
 

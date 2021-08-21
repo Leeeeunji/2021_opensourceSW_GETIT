@@ -24,6 +24,7 @@ def mentee_list(request):
 def base(request):
     return render(request, 'base.html')
 
+<<<<<<< HEAD
 
 def create(request):
     mentor_blog = mentor()
@@ -43,3 +44,7 @@ def create(request):
 
     mentor_blog.save()
     return redirect('mentor_list')
+=======
+def mypage(request):
+    return render(request, 'mypage.html')
+>>>>>>> fd1652b96b49b6f73c8b411457773db493059ee3
