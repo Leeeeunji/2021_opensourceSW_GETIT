@@ -1,39 +1,53 @@
 
-  .writebtn{
-    width:120px;
-    height:35px;
-    border:1px solid #FFD400;
-    float:left;
-    text-align:center;
-    cursor:pointer;
-    position:relative;
-    box-sizing:border-box;
-    overflow:hidden;
+  html, body {
+    height: 100%;
   }
-  .writebtn a{
-    font-family:arial;
-    font-size:16px;
+
+  .textbox{
+    border: 3px solid #FFD400;
+    border-radius: 0px;
+    height: 20px;
+    width: 200px;
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+    /* position:absolute; */
+    margin-left: 100%;
+    
+  }
+ 
+
+  
+  .wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button {
+    width: 140px;
+    height: 45px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
     color: #000;
-    text-decoration:none;
-    line-height:50px;
-    transition:all .5s ease;
-    z-index:10;
-    position:relative;
-  }
-  .writeeff{
-    width:140px;
-    height:50px;
-    left:-140px;
-    background:#FFD400;
-    position:absolute;
-    transition:all .5s ease;
-    z-index:1;
-  }
-  .writebtn:hover .writeeff{
-    left:0;
-  }
-  .writebtn:hover a{
-    color:#fff;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    }
+  
+  .button:hover {
+    background-color: #FFD400;
+    box-shadow: 0px 15px 20px #ffd50075;
+    color: #fff;
+    transform: translateY(-7px);
   }
   
   

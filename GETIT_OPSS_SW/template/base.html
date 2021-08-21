@@ -13,37 +13,30 @@
     <link rel="stylesheet" href="../../static/css/base.css">
     <style>
     @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
-        #header {
-            background-color: aliceblue;
-            height: 100px;
-        }
-        #nav {
-            background-color: aquamarine;
-            width: 200px;
-            height: 300px;
-            float: left;
-        }
-        #section {
-            width: 200px;
-            text-align: left;
-            float: left;
-            padding: 10px;
-        }
-        #footer {
-            background-color: blanchedalmond;
-            height: 100px;
-            clear: both;
-        }
-        #header, #nav, #section, #footer { text-align:center; }
-        #header, #footer {line-height: 100px;}
-        #nav, #section {line-height: 240px;}
+       
     </style>
 </head>
 <body>
-    <div id="header" class="nav-wrapper">
-        HEADER 영역
-        
-         
+    <div class="header">
+        <div class="nav-item">
+            {% if user.is_authenticated %}
+                <div class="hello">
+                   
+                    <p style="font-family:Nanum Gothic;" >안녕하세요, {{user.username}}님! </p>
+                </div>
+                <div class="condition">
+                    <a href="javascript:{document.getElementById('logout').submit()}" style="font-family:Nanum Gothic;">Logout</a>
+                    <form id="logout" method="POST" action="{% url 'logout' %}">
+                        {%csrf_token%} <input type="hidden" />
+                    </form>
+                </div>
+                {% else %}
+                <div class="condition2">
+                    <a href="{% url 'signup' %}" style="margin-right:10px;">Signup</a>
+                    <a href="{% url 'login' %}">Login</a>
+                </div>
+            {% endif %}
+        </div>
     </div>
     <div class ="con"> 
         {% block content %}
