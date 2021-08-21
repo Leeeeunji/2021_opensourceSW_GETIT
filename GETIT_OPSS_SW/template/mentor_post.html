@@ -116,20 +116,109 @@
 
     <body>
         <h1>Mento 글쓰기 페이지</h1>
-        <form method="POST">
+        <form action="{%url 'create'%}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <h4>제목</h4>
-            <input type="text" name="postname">
-            <h4>내용</h4>
-            <textarea rows="10" cols="50" name="contents"></textarea><br>
-            <input type="file" name="mainphoto"><br>
+            <div>
+                <h4>제목</h4>
+                <input type="text" name="title">
+            </div>
 
-            <br>
-        </br>
-            <div class="writebtn">
-                <div class="writeeff" input type="submit"></div>
-                <a href="#"> 글쓰기 </a>
-              </div>
+            <div>
+                <h4>사용자</h4>
+                <input type="text" name="user">
+            </div>
+
+
+            <div>
+
+                <body>
+                    <h4>모집 시작일</h4>
+                    <form name="date" action="mentor_list.html" method="post">
+                        <input type='date' name='recruit_startdate'/></form>
+
+                        <h4>모집 종료일</h4>
+                        <form name="date" action="mentor_list.html" method="post">
+                            <input type='date' name='recruit_endDate'></form>
+
+                            <h4>봉사 시작일</h4>
+                            <form name="date" action="mentor_list.html" method="post">
+                                <input type='date' name='volun_startDate' ></form>
+
+                                <h4>봉사 종료일</h4>
+                                <form name="date" action="mentor_list.html" method="post">
+                                    <input type='date' name='volun_endDate' ></form>
+                </body>
+            </div>
+
+            <div>
+                <h4>봉사 시간</h4>
+                <input type='text' name="volun_time">
+            </div>
+
+            <div>
+                <h4>봉사 요일</h4>
+                <input type='text' name="volun_day">
+            </div>
+
+            <div>
+                <h4>모집 정원</h4>
+                <input type="number" id="usernumber" name="recruit_number" value="0">
+            </div>
+
+            <div>
+                <h4>봉사 TYPE</h4>
+                <select name="volunType_Choices">
+                    <option value="none">===선택====</option>
+                    <option value="online">온라인</option>
+                    <option value="offline">오프라인</option>
+                </select>
+            </div>
+
+            <div>
+                <h4>봉사 기관</h4>
+                <input type="text" name="volunType">
+            </div>
+
+            <!-- <input type="text" name="center_latitude"> 
+                            <input type="number" id="usernumber" name="recruit_number" value ="0">
+-->
+
+            <div>
+                <h4>모집 기관</h4>
+                <input type="text" name="recruit_center">
+            </div>
+
+            <div>
+                <h4>모집기관 위도</h4>
+                <input type="number" id="center" name="center_latitude" value="0.0">
+            </div>
+
+            
+            <div>
+                <h4>모집기관 경도</h4>
+                <input type="number" id="center" name="center_longitude" value="0.0">
+            </div>
+
+            <div>
+                <h4>봉사 장소</h4>
+                <input type="text" name="volun_place">
+            </div>
+
+            <div>
+                <h4>봉사 대상</h4>
+                <input type="text" name="volun_for">
+            </div>
+
+            <div>
+                <h4>첨부파일</h4>
+                <input type="file" name="files">
+            </div>
+
+            <div>
+                <input type="submit" value="글쓰기">
+            </div>
+
+
 
         </form>
     </body>
