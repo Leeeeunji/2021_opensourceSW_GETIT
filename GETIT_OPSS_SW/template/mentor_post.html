@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>Mentee Board</title>
+    <title>Mentor Board</title>
 
     <style>
         html,
@@ -48,6 +48,7 @@
             font-size: 24px;
             text-align: center;
             background-color: rgb(255, 212, 0);
+
         }
 
         .side_input:checked+.side_toggle_btn::before {
@@ -67,7 +68,9 @@
             width: 250px;
             font-size: 24px;
             transition: 0.3s ease-in;
-            background-color: rgb(255, 212, 0);
+            /* background-color: rgb(255, 212, 0); */
+            background-color: rgb(243, 243, 243);
+            border-bottom: 1px #000;
 
 
         }
@@ -90,12 +93,54 @@
         }
 
         h4 {
-            /* text-align: center; */
-            /* left: 50%; */
             margin-left: 350px;
             display: inline;
             position: static;
 
+        }
+
+        #sidebar {
+            float: left;
+
+        }
+
+        ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            position: relative;
+            text-align: center;
+
+        }
+
+        ul li a {
+            text-decoration: none;
+            display: block;
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        li {
+            width: 250px;
+            background-color: rgb(255, 233, 122);
+            text-align: center;
+        }
+
+
+
+        ul li:hover {
+            background-color: rgb(238, 238, 238);
+        }
+
+        ul ul {
+            display: none;
+            position: absolute;
+            top: 50px;
+        }
+
+        ul li:hover>ul {
+            display: block;
         }
     </style>
 
@@ -104,10 +149,41 @@
 
 <header>
     <input type="checkbox" id="side_btn" class="side_input blind" />
-    <label for="side_btn" class="side_toggle_btn"></label>
+    <label for="side_btn" class="side_toggle_btn"> CANDLE EDU</label>
     <div class="side_list">
-        <a href="#" class="side_link">개인 교육</a>
-        <a href="#" class="side_link">단체 교육</a>
+
+        <div id="sidebar">
+            <div class="menutitle">MENTOR</div>
+
+            <ul>
+                <li>
+                    <a href="#">개인 교육</a>
+                    <ul>
+                        <li><a href="#">초등</a></li>
+                        <li><a href="#">중등</a></li>
+                        <li><a href="#">고등</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <br></br> <br></br>
+        <br></br> <br></br> <br></br>
+
+
+        <div id="sidebar">
+            <ul>
+                <li>
+                    <a href="#">단체 교육</a>
+                    <ul>
+                        <li><a href="#">초등</a></li>
+                        <li><a href="#">중등</a></li>
+                        <li><a href="#">고등</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
 
     </div>
 </header>
@@ -115,7 +191,7 @@
 
 
 <body>
-    <h1>Mento 글쓰기 페이지</h1>
+    <h1>Mentor 글쓰기 페이지</h1>
     <form action="{% url 'create' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div style="width: 700px" ; align="center">
@@ -217,7 +293,7 @@
             <button type="submit" value="글쓰기" class="button">글쓰기</button><br></br>
         </div>
 
-    
+
     </form>
 </body>
 

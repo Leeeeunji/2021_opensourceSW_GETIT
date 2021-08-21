@@ -15,9 +15,6 @@
     margin-left: 100%;
     
   }
- 
-
-  
   .wrap {
     height: 100%;
     display: flex;
@@ -49,5 +46,10 @@
     color: #fff;
     transform: translateY(-7px);
   }
-  
-  
+  .menutitle{
+    text-align: center;
+    width: 250px;
+    height: 100px;
+    line-height: 100px;
+    background-color: rgb(255, 212, 0);
+}
