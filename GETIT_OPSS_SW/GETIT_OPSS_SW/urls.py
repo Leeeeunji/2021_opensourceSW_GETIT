@@ -22,13 +22,23 @@ from accounts.views import signup, login_request
 from blog.views import *
 
 urlpatterns = [
+    path('chat/', include('chat.urls')),
     path('admin/', admin.site.urls),
     path('base/', base, name="base"), 
+    path('accounts/', include('accounts.urls')),
 
     path('signup/', signup, name="signup" ),
     path('login/', login_request, name="login"),
+    path('mypage/<str:username>', mypage, name="mypage"),
+
     path('main/', main, name="main"),
     path('mentor_post/', mentor_post, name="mentor_post"),
     path('mentor_list/', mentor_list, name="mentor_list"),
     path('mentor_detail/', mentor_detail, name="mentor_detail"),
+    path('mentee_post/', mentee_post, name="mentee_post"),
+    path('mentee_list/', mentee_list, name="mentee_list"),
+
+    path('create/', create, name='create'),
+    path('create2/', create2, name='create2'),
+
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
