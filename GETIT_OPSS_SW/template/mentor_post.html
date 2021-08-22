@@ -68,11 +68,8 @@
             width: 250px;
             font-size: 24px;
             transition: 0.3s ease-in;
-            /* background-color: rgb(255, 212, 0); */
             background-color: rgb(243, 243, 243);
             border-bottom: 1px #000;
-
-
         }
 
         .side_link {
@@ -96,12 +93,10 @@
             margin-left: 350px;
             display: inline;
             position: static;
-
         }
 
         #sidebar {
             float: left;
-
         }
 
         ul {
@@ -162,14 +157,12 @@
                         <li><a href="#">초등</a></li>
                         <li><a href="#">중등</a></li>
                         <li><a href="#">고등</a></li>
+                        <li><a href="#">기타</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
-        <br></br> <br></br>
-        <br></br> <br></br> <br></br>
-
-
+        <br></br> <br></br> <br></br> <br></br> <br></br><br></br>
         <div id="sidebar">
             <ul>
                 <li>
@@ -178,13 +171,12 @@
                         <li><a href="#">초등</a></li>
                         <li><a href="#">중등</a></li>
                         <li><a href="#">고등</a></li>
+                        <li><a href="#">기타</a></li>
+
                     </ul>
                 </li>
             </ul>
         </div>
-
-
-
     </div>
 </header>
 
@@ -195,36 +187,12 @@
     <form action="{% url 'create' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div style="width: 700px" ; align="center">
-
-            <!-- <div style="line-height: 170%; font-size:12px; font-family: 돋움;"> -->
-
             <div style="line-height: 100%; font-size:20px;">
                 <h4>제목</h4>
                 <input type="text" name="title" class="textbox"><br></br>
-
             </div>
 
-
-            <div style="line-height: 100%; font-size:20px;">
-
-                <body>
-                    <h4>모집 시작일</h4>
-                    <input type="date" name="recruit_startdate" class="textbox">
-                    <br></br>
-
-                    <h4>모집 종료일</h4>
-                    <input type="date" name="recruit_endDate" class="textbox">
-                    <br></br>
-
-                    <h4>봉사 시작일</h4>
-                    <input type="date" name="volun_startDate" class="textbox">
-                    <br></br>
-
-                    <h4>봉사 종료일</h4>
-                    <input type="date" name="volun_endDate" class="textbox">
-                    <br></br>
-                </body>
-            </div>
+           
 
             <div style="line-height: 100%; font-size:20px;">
                 <h4>봉사 시간</h4>

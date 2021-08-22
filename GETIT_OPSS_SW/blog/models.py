@@ -40,8 +40,9 @@ class mentee(models.Model):
     title = models.CharField(max_length=100) #글 제목
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) #related_name 필드?
     pub_date = models.DateTimeField(auto_now_add=True) #자동으로 글 올린 날짜 저장. 수정불가 #생성날짜
-    mentoringStart_times = models.DateField(null=True, default=timezone.now)    #원하는 멘토링 시작 시각
-    mentoringEnd_times = models.DateField(null=True, default=timezone.now)      #원하는 멘토링 종료 시각
+    # mentoringStart_times = models.DateField(null=True, default=timezone.now)    #원하는 멘토링 시작 시각
+    # mentoringEnd_times = models.DateField(null=True, default=timezone.now)      #원하는 멘토링 종료 시각
+    study_times = models.TextField(blank=True) #교육을 원하는 시간대
     mentoringType_Choices = (('Onine', '온라인'), ('Offline', '오프라인'))
     mentoringType = models.CharField(max_length=10, choices=mentoringType_Choices)
     partMentor_Chocies = (('Study', '학업'), ('Digital', '디지털'))

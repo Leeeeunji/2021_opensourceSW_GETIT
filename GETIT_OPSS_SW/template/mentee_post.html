@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<!--               
-    border-right: 1px solid #000; 오른쪽 경계선 그리기
--->
 <link rel="stylesheet" href="../../static/css/mentee_post.css">
 
 <!DOCTYPE html>
@@ -14,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>Mentee Board</title>
+    <title>Mentor Board</title>
 
     <style>
         html,
@@ -46,11 +43,12 @@
 
             content: ">";
             display: inline-block;
-            width: 50px;
+            width: 75px;
             line-height: 50px;
             font-size: 24px;
             text-align: center;
-            background-color: rgb(76, 172, 219);
+            background-color: #44A8D8;
+
         }
 
         .side_input:checked+.side_toggle_btn::before {
@@ -63,16 +61,15 @@
 
         .side_list {
             position: absolute;
-            left: -200px;
-            top: 50px;
+            left: -250px;
+            top: 150px;
             bottom: 0;
             border-right: 1px solid #000;
-            width: 200px;
+            width: 250px;
             font-size: 24px;
             transition: 0.3s ease-in;
-            background-color: rgb(76, 172, 219);
-
-
+            background-color: rgb(243, 243, 243);
+            border-bottom: 1px #000;
         }
 
         .side_link {
@@ -83,7 +80,7 @@
         }
 
         .main {
-            margin-left: 200px;
+            margin-left: 250px;
             font-size: 20px;
             padding: 0px 10px;
         }
@@ -91,72 +88,187 @@
         h1 {
             text-align: center;
         }
+
+        h4 {
+            margin-left: 350px;
+            display: inline;
+            position: static;
+        }
+
+        #sidebar {
+            float: left;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            position: relative;
+            text-align: center;
+
+        }
+
+        ul li a {
+            text-decoration: none;
+            display: block;
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        li {
+            width: 250px;
+            background-color: #8FCEEC;
+            text-align: center;
+        }
+
+
+
+        ul li:hover {
+            background-color: rgb(238, 238, 238);
+        }
+
+        ul ul {
+            display: none;
+            position: absolute;
+            top: 50px;
+        }
+
+        ul li:hover>ul {
+            display: block;
+        }
     </style>
 
 </head>
 
 
+<header>
+    <input type="checkbox" id="side_btn" class="side_input blind" />
+    <label for="side_btn" class="side_toggle_btn"> CANDLE EDU</label>
+    <div class="side_list">
+
+        <div id="sidebar">
+            <div class="menutitle">MENTEE</div>
+
+            <ul>
+                <li>
+                    <a href="#">개인 교육</a>
+                    <ul>
+                        <li><a href="#">초등</a></li>
+                        <li><a href="#">중등</a></li>
+                        <li><a href="#">고등</a></li>
+                        <li><a href="#">기타</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <br></br> <br></br> <br></br> <br></br> <br></br><br></br>
+        <div id="sidebar">
+            <ul>
+                <li>
+                    <a href="#">단체 교육</a>
+                    <ul>
+                        <li><a href="#">초등</a></li>
+                        <li><a href="#">중등</a></li>
+                        <li><a href="#">고등</a></li>
+                        <li><a href="#">기타</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
 
 <body>
-    <header>
-        <input type="checkbox" id="side_btn" class="side_input blind" />
-        <label for="side_btn" class="side_toggle_btn"></label>
-        <div class="side_list">
-            <a href="#" class="side_link">개인 교육</a>
-            <a href="#" class="side_link">단체 교육</a>
+    <h1>Mentee 글쓰기 페이지</h1>
+    <form action="{% url 'create' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div style="width: 700px" ; align="center">
+            <div style="line-height: 100%; font-size:20px;">
+                <h4>제목</h4>
+                <input type="text" name="title" class="textbox"><br></br>
+            </div>
 
+            <div>
+                <h4>멘토링 분야</h4>
+                <input type="radio" id="study" value="학습" name="mentoringPart">
+                <label for="study">학습</label><br>
+                <input type="radio" id="digital" value="디지털" name="mentoringPart">
+                <label for="digital">디지털</label><br>
+            </div>
+
+            <div style="line-height: 100%; font-size:20px;">
+                <h4>봉사 시간</h4>
+                <input type="text" name="volun_times" class="textbox"><br></br>
+            </div>
+
+            <div style="line-height: 100%; font-size:20px;">
+                <h4>봉사 요일</h4>
+                <input type="text" name="volun_day" class="textbox"><br></br>
+            </div>
+
+            <div style="line-height: 100%; font-size:20px;">
+                <h4>모집 정원</h4>
+                <input type="number" id="usernumber" name="recruit_number" value="0" class="textbox"><br></br>
+            </div>
+
+            <div style="line-height: 100%; font-size:20px;">
+                <h4>봉사 TYPE</h4>
+                <select name="volunType_Choices" class="textbox">
+                    <option value="none">===선택====</option>
+                    <option value="online">온라인</option>
+                    <option value="offline">오프라인</option>
+                </select><br></br>
+            </div>
+
+            <div style="line-height: 100%; font-size:20px;">
+                <h4>봉사 기관</h4>
+                <input type="text" name="volunType" class="textbox"><br></br>
+            </div>
+
+
+            <div style="line-height: 100%; font-size:20px;">
+                <h4>모집 기관</h4>
+                <input type="text" name="recruit_center" class="textbox"><br></br>
+            </div>
+
+            <div style="line-height: 100%; font-size:20px;">
+                <h4>모집기관 위도</h4>
+                <input type="number" id="center" name="center_latitude" value="0.0" class="textbox"><br></br>
+            </div>
+
+
+            <div style="line-height: 100%; font-size:20px;">
+                <h4>모집기관 경도</h4>
+                <input type="number" id="center" name="center_longitude" value="0.0" class="textbox"><br></br>
+            </div>
+
+            <div style="line-height: 100%; font-size:20px;">
+                <h4>봉사 장소</h4>
+                <input type="text" name="volun_place" class="textbox"><br></br>
+            </div>
+
+            <div style="line-height: 100%; font-size:20px;">
+                <h4>봉사 대상</h4>
+                <input type="text" name="volun_for" class="textbox"><br></br>
+            </div>
+
+            <div style="line-height: 100%; font-size:20px;">
+                <h4>첨부파일</h4>
+                <input type="file" name="files"><br></br>
+            </div>
         </div>
-    </header>
 
 
+        <div class="wrap">
+            <button type="submit" value="글쓰기" class="button">글쓰기</button><br></br>
+        </div>
 
 
-    <head>
-        <meta charset="UTF-8">
-    </head>
-
-    <body>
-        <h1>Mentee 글쓰기 페이지</h1>
-        <form method="POST">
-            {% csrf_token %}
-            <h4>제목</h4>
-            <input type="text" name="postname">
-            <h4>유저</h4>
-            <input type="text" name="user">
-            <h4>멘토링 방식</h4>
-            <input type="radio" id="online" value="온라인" name="mentoringWay">
-            <label for="online">온라인</label><br>
-            <input type="radio" id="offline" value="오프라인" name="mentoringWay">
-            <label for="offline">오프라인</label><br>
-            <h4>멘토링 분야</h4>
-            <input type="radio" id="study" value="학습" name="mentoringPart">
-            <label for="study">학습</label><br>
-            <input type="radio" id="digital" value="디지털" name="mentoringPart">
-            <label for="digital">디지털</label><br>
-            <h4>모집센터 (단체 멘토링일때만 기입)</h4>
-            <input type="text" name="center">
-            <h4>멘토링 시작 시각 (원하는 멘토링 시작 시각을 설정해주세요)</h4>
-            <input type="time" name="startTime">
-            <h4>멘토링 종료 시각 (원하는 멘토링 종료 시각을 설정해주세요)</h4>
-            <input type="time" name="endTime">
-            <h4>추가로 작성할 내용</h4>
-            <textarea rows="10" cols="50" name="contents"></textarea><br>
-            <input type="file" name="mainphoto"><br>
-
-            <br>
-        </br>
-            <div class="writebtn">
-                <div class="writeeff" input type="submit"></div>
-                <a href="#"> 글쓰기 </a>
-              </div>
-
-        </form>
-    </body>
-
+    </form>
 </body>
-
-</html>
-
-
 
 {% endblock %}
