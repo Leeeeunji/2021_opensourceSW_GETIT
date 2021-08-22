@@ -38,7 +38,18 @@ def create(request):
     mentor_blog.volun_times = request.POST['volun_times']
     mentor_blog.volun_day = request.POST['volun_day']
     mentor_blog.recruit_number = request.POST['recruit_number']
+    # mentor_blog.detail=request.POST['detail']
     mentor_blog.save()
+    return redirect('main')
+
+def create2(request):
+    mentee_blog = mentee()
+    mentee_blog.title = request.POST['title']
+    mentee_blog.user = request.user
+    mentee_blog.study_times = request.POST['study_times']
+    mentee_blog.mentoringType = request.POST['mentoringType']
+    mentee_blog.partMentor = request.POST['partMentor']
+    mentee_blog.save()
     return redirect('main')
 
 def mypage(request):

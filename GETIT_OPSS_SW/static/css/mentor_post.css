@@ -11,9 +11,17 @@
     background: #fff;
     align-items: center;
     justify-content: center;
-    /* position:absolute; */
-    margin-left: 100%;
-    
+    margin-left: 100%; 
+  }
+  .detailtextbox{
+    border: 3px solid #FFD400;
+    border-radius: 0px;
+    height: 100px;
+    width: 1000px;
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+    margin-left: 100%; 
   }
   .wrap {
     height: 100%;

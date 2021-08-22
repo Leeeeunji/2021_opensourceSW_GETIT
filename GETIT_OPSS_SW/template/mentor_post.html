@@ -32,7 +32,23 @@
         }
 
         header {
-            border-bottom: 1px solid #000;
+            height: 150px;
+            background-color: #4CACDB;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white
+        }
+
+        header1 {
+            height: 80px;
+            background-color: #b9b9b975;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white
         }
 
         a {
@@ -137,12 +153,14 @@
         ul li:hover>ul {
             display: block;
         }
+
+        
     </style>
 
 </head>
 
 
-<header>
+<head>
     <input type="checkbox" id="side_btn" class="side_input blind" />
     <label for="side_btn" class="side_toggle_btn"> CANDLE EDU</label>
     <div class="side_list">
@@ -178,12 +196,24 @@
             </ul>
         </div>
     </div>
-</header>
+</head>
 
 
 
 <body>
-    <h1>Mentor 글쓰기 페이지</h1>
+
+
+    <header>
+        <h1>Mentor 글쓰기 페이지</h1>
+    </header>
+
+    <header1>
+        <h3>Mentor님의 멘토링 정보를 적어주세요!</h3>
+    </header1>
+    <br>
+
+
+
     <form action="{% url 'create' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div style="width: 700px" ; align="center">
@@ -191,9 +221,26 @@
                 <h4>제목</h4>
                 <input type="text" name="title" class="textbox"><br></br>
             </div>
+            <div style="line-height: 100%; font-size:20px;">
 
-           
+                <body>
+                    <h4>모집 시작일</h4>
+                    <input type="date" name="recruit_startdate" class="textbox">
+                    <br></br>
 
+                    <h4>모집 종료일</h4>
+                    <input type="date" name="recruit_endDate" class="textbox">
+                    <br></br>
+
+                    <h4>봉사 시작일</h4>
+                    <input type="date" name="volun_startDate" class="textbox">
+                    <br></br>
+
+                    <h4>봉사 종료일</h4>
+                    <input type="date" name="volun_endDate" class="textbox">
+                    <br></br>
+                </body>
+            </div>
             <div style="line-height: 100%; font-size:20px;">
                 <h4>봉사 시간</h4>
                 <input type="text" name="volun_times" class="textbox"><br></br>
@@ -249,6 +296,12 @@
                 <h4>봉사 대상</h4>
                 <input type="text" name="volun_for" class="textbox"><br></br>
             </div>
+
+
+            <!-- <div style="line-height: 100%; font-size:20px;">
+                <h4>상세 정보</h4>
+                <input type="text" name="detail" class="textbox"><br></br>
+            </div> -->
 
             <div style="line-height: 100%; font-size:20px;">
                 <h4>첨부파일</h4>

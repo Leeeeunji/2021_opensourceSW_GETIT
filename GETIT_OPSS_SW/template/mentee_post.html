@@ -32,7 +32,23 @@
         }
 
         header {
-            border-bottom: 1px solid #000;
+            height: 150px;
+            background-color: rgb(255, 212, 0);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white
+        }
+
+        header1 {
+            height: 80px;
+            background-color: #b9b9b975;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white
         }
 
         a {
@@ -142,7 +158,7 @@
 </head>
 
 
-<header>
+<head>
     <input type="checkbox" id="side_btn" class="side_input blind" />
     <label for="side_btn" class="side_toggle_btn"> CANDLE EDU</label>
     <div class="side_list">
@@ -178,13 +194,22 @@
             </ul>
         </div>
     </div>
-</header>
+</head>
 
 
 
 <body>
-    <h1>Mentee 글쓰기 페이지</h1>
-    <form action="{% url 'create' %}" method="post" enctype="multipart/form-data">
+    
+    <header>
+        <h1>Mentee 글쓰기 페이지</h1>
+    </header>
+
+    <header1>
+        <h3>Mentee님의 멘토링 정보를 적어주세요!</h3>
+    </header1>
+    <br>
+
+    <form action="{% url 'create2' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div style="width: 700px" ; align="center">
             <div style="line-height: 100%; font-size:20px;">
@@ -192,44 +217,36 @@
                 <input type="text" name="title" class="textbox"><br></br>
             </div>
 
-            <div>
-                <h4>멘토링 분야</h4>
-                <input type="radio" id="study" value="학습" name="mentoringPart">
+            <div style="line-height: 100%; font-size:20px;">
+                <h4>교육을 원하는 시간대</h4>
+                <input type="text" name="study_times" class="textbox"><br></br>
+            </div>
+
+            <!-- <div>
+                <h4>멘토링 형식</h4>
+                <input type="radio" id="Online" value="온라인" name="mentoringType_Choices">
                 <label for="study">학습</label><br>
-                <input type="radio" id="digital" value="디지털" name="mentoringPart">
+                <input type="radio" id="Offline" value="오프라인" name="mentoringType_Choices">
                 <label for="digital">디지털</label><br>
+            </div> -->
+            <div style="line-height: 100%; font-size:20px;">
+                <h4>멘토링 형식</h4>
+                <input type="text" name="mentoringType" class="textbox"><br></br>
             </div>
+            <!-- <div>
+                <h4>멘토링 분야</h4>
+                <input type="radio" id="Study" value="학습" name="partMentor_Choices">
+                <label for="study">학습</label><br>
+                <input type="radio" id="Digital" value="디지털" name="partMentor_Choices">
+                <label for="digital">디지털</label><br>
+            </div> -->
 
             <div style="line-height: 100%; font-size:20px;">
-                <h4>봉사 시간</h4>
-                <input type="text" name="volun_times" class="textbox"><br></br>
+                <h4>멘토링 Part</h4>
+                <input type="text" name="partMentor" class="textbox"><br></br>
             </div>
 
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>봉사 요일</h4>
-                <input type="text" name="volun_day" class="textbox"><br></br>
-            </div>
-
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>모집 정원</h4>
-                <input type="number" id="usernumber" name="recruit_number" value="0" class="textbox"><br></br>
-            </div>
-
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>봉사 TYPE</h4>
-                <select name="volunType_Choices" class="textbox">
-                    <option value="none">===선택====</option>
-                    <option value="online">온라인</option>
-                    <option value="offline">오프라인</option>
-                </select><br></br>
-            </div>
-
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>봉사 기관</h4>
-                <input type="text" name="volunType" class="textbox"><br></br>
-            </div>
-
-
+        
             <div style="line-height: 100%; font-size:20px;">
                 <h4>모집 기관</h4>
                 <input type="text" name="recruit_center" class="textbox"><br></br>
@@ -251,10 +268,7 @@
                 <input type="text" name="volun_place" class="textbox"><br></br>
             </div>
 
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>봉사 대상</h4>
-                <input type="text" name="volun_for" class="textbox"><br></br>
-            </div>
+            
 
             <div style="line-height: 100%; font-size:20px;">
                 <h4>첨부파일</h4>
