@@ -40,5 +40,4 @@ urlpatterns = [
 
     path('create/', create, name='create'),
     path('create2/', create2, name='create2'),
-
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
