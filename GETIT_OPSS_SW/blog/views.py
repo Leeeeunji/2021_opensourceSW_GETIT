@@ -52,5 +52,6 @@ def create2(request):
     mentee_blog.save()
     return redirect('main')
 
-def mypage(request):
-    return render(request, 'mypage.html')
+def mypage(request, username):
+    user = get_object_or_404(get_user_model(), username=username)
+    return render(request, 'mypage.html', {'user':user})

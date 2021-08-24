@@ -40,16 +40,19 @@ body {
  
 #nav {
     background-color: aquamarine;
-    width: 200px;
-    height: 300px;
+    width: 20%;
+    height: 700px;
     float: left;
 }
+
 #section {
-    width: 200px;
+    width: 70%;
     text-align: left;
     float: left;
     padding: 10px;
+    background-color: blanchedalmond;
 }
+
 #footer {
     background-color: blanchedalmond;
     height: 100px;
