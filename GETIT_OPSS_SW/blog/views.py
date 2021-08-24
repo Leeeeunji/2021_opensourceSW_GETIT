@@ -1,7 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import mentor
-from .models import mentee
+from .models import mentor, mentee
 
 def main(request):
     return render(request, 'main.html')
@@ -12,14 +11,33 @@ def mentor_post(request):
 def mentor_list(request):
     return render(request, 'mentor_list.html')
 
+#def mentor_detail(request, id):
 def mentor_detail(request):
-    return render(request, 'mentor_detail.html')
+    #blog = get_object_or_404(mentor, pk = id)
+    blog = mentor.objects.first(); # 임시로 첫번째 항목만 전달되도록 해놓음 / 나중에 mentor_post 페이지에서 id 전달되도록 페이지 연결하면 그때 수정
+    person = get_object_or_404(get_user_model(), username=request.user)
+    context = {
+        'blog' : blog,
+        'person' : person
+    }
+    return render(request, 'mentor_detail.html', context)
 
 def mentee_post(request):
     return render(request, 'mentee_post.html')
 
 def mentee_list(request):
     return render(request, 'mentee_list.html')
+
+    #def mentee_detail(request, id):
+def mentee_detail(request):
+    #blog = get_object_or_404(mentee, pk = id)
+    blog = mentee.objects.first(); # 임시로 첫번째 항목만 전달되도록 해놓음 / 나중에 mentee_post 페이지에서 id 전달되도록 페이지 연결하면 그때 수정
+    person = get_object_or_404(get_user_model(), username=request.user)
+    context = {
+        'blog' : blog,
+        'person' : person
+    }
+    return render(request, 'mentee_detail.html', context)
 
 def base(request):
     return render(request, 'base.html')

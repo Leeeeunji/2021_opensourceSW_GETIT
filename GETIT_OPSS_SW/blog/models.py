@@ -10,8 +10,7 @@ class mentor(models.Model):
     title = models.CharField(max_length=100) #글 제목
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) #related_name 필드?
     pub_date = models.DateTimeField(auto_now_add=True) #자동으로 글 올린 날짜 저장. 수정불가 #생성날짜
-    # recruit_startdate = models.DateField(null=True, default=timezone.now) #모집시작일
-    recruit_startdate = models.DateField(blank=True)
+    recruit_startdate = models.DateField(null=True, default=timezone.now) #모집시작일
     recruit_endDate = models.DateField(blank=True) #모집종료일
    
     volun_startDate = models.DateField(blank=True) #봉사시작일

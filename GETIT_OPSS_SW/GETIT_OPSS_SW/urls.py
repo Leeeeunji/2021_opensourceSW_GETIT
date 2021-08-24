@@ -37,6 +37,7 @@ urlpatterns = [
     path('mentor_detail/', mentor_detail, name="mentor_detail"),
     path('mentee_post/', mentee_post, name="mentee_post"),
     path('mentee_list/', mentee_list, name="mentee_list"),
+    path('mentee_detail/', mentee_detail, name="mentee_detail"),
 
     path('create/', create, name='create'),
     path('create2/', create2, name='create2'),
