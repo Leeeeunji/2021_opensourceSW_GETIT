@@ -1,0 +1,26 @@
+.log-box {
+    text-align: center;
+}
+
+.send-area {
+    text-align: center;
+}
+
+#name-area {
+    resize : none;
+    width : 800px;
+    height : 30px;
+    vertical-align: middle;
+    background-color: #FFD400;
+}
+
+#chat-log {
+    resize : none;
+    width : 800px;
+    height : 450px;
+    background-color: #FBF9F8;
+}
+
+#chat-message-input {
+    width : 700px;
+}
