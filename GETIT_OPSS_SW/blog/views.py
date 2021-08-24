@@ -21,6 +21,9 @@ def mentee_post(request):
 def mentee_list(request):
     return render(request, 'mentee_list.html')
 
+def mentee_detail(request):
+    return render(request, 'mentee_detail.html')
+
 def base(request):
     return render(request, 'base.html')
 
