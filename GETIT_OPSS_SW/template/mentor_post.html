@@ -214,12 +214,13 @@
 
 
 
+    
     <form action="{% url 'create' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <div style="width: 700px" >
+        <div style="width: 700px" ; align="center">
             <div style="line-height: 100%; font-size:20px;">
                 <h4>제목</h4>
-                <input type="text" name="title" class="textbox2"><br></br>
+                <input type="text" name="title" class="textbox"><br></br>
             </div>
             <div style="line-height: 100%; font-size:20px;">
 
