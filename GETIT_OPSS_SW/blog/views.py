@@ -42,6 +42,8 @@ def mentee_detail(request):
 def base(request):
     return render(request, 'base.html')
 
+def support(request):
+    return render(request, 'support.html')
 
 def create(request):
     mentor_blog = mentor()

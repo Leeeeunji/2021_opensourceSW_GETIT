@@ -39,7 +39,8 @@ urlpatterns = [
     path('mentee_list/', mentee_list, name="mentee_list"),
     path('mentee_detail/', mentee_detail, name="mentee_detail"),
 
+    path('support/', support, name="support"),
+
     path('create/', create, name='create'),
     path('create2/', create2, name='create2'),
-
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
