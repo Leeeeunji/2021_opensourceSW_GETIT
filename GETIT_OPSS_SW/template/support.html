@@ -37,11 +37,55 @@
         font-size: 28px;
     }
 
-    h4 {
+    h5 {
         text-align: left;
         margin-left: 5%;
         font-family: Nanum Gothic;
-        font-size: 18px;
+        font-size: 35px;
+    }
+
+    h5 {
+        font-size: 50px;
+        min-width: 11px;
+        font-style: Fantasy;
+        white-space: nowrap;
+        margin: 0;
+        position: fixed;
+        color: transparent;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: -300px;
+        margin-left: -2%;
+    }
+
+    h5::before {
+        content: "CANDLE EDU 사용 도움말";
+        position: absolute;
+        font-family: "Nanum Gothic";
+
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #FFD400;
+        overflow: hidden;
+        border-right: 5px solid #44A8D8;
+        animation: typing 8s steps(31) infinite;
+    }
+
+    @keyframes typing {
+        0% {
+            width: 0%;
+        }
+
+        50% {
+            width: 100%;
+        }
+
+        100% {
+            width: 0%;
+        }
     }
 
     /* #rounded-rectangle {
@@ -91,10 +135,10 @@
 
 <body>
     <div id="background-rectangle3">
-        <h1>CANDLE EDU 사용 도움말</h1>
+        <h5>CANDLE EDU 사용 도움말</h5>
     </div>
 
-    <div id="background-rectangle1">
+    <div id="background-rectangle1" style="margin-top: 130px;">
         <h2>&#9997;CANDLE EDU ?</h2>
         <h3>"한 개의 촛불로서 많은 촛불에 불을 붙여도 처음의 촛불의 빛은 약해지지 않는다." _탈무드</h3>
         <h4>'CANDLE EDU'는 탈무드의 위 구절이 저희 플랫폼이 목표로 이루고자 하는 바에 걸맞고,
@@ -130,22 +174,7 @@
 </body>
 
 
-<section class="container">
-    <h1 class="title">
-      <span>Hi, nice</span>
-      <span>to see</span>
-      <span>you here</span>
-    </h1>
-    
-    <h2 class="title">
-      <span>This is</span>
-      <span>a long</span>
-      <span>sub title</span>
-      
-      
-    </h2>
-  </section>
-  <span class="usechrome">Use Chrome for a better experience</span>
+
 </html>
 
 {% endblock %}
