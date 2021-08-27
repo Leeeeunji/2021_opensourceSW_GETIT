@@ -61,9 +61,9 @@ def mypage(request):
     return render(request, 'mypage.html')
 
 def mentor_board(request):
-    mentors = mentor.objects.all()  #작성글의 모든 요소를 가져오기
+    mentors = mentor.objects.all() #멘토가 작성한 글의 모든 요소 가져오기
     return render(request, 'mentor_board.html', {'mentors':mentors})
 
 def mentee_board(request):
-    mentees = mentee.objects.all()  #작성글의 모든 요소를 가져오기
+    mentees = mentee.objects.all() #멘티가 작성한 글의 모든 요소 가져오기
     return render(request, 'mentee_board.html', {'mentees':mentees})
