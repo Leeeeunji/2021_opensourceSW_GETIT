@@ -59,3 +59,11 @@ def create2(request):
 
 def mypage(request):
     return render(request, 'mypage.html')
+
+def mentor_board(request):
+    mentors = mentor.objects.all()  #작성글의 모든 요소를 가져오기
+    return render(request, 'mentor_board.html', {'mentors':mentors})
+
+def mentee_board(request):
+    mentees = mentee.objects.all()  #작성글의 모든 요소를 가져오기
+    return render(request, 'mentee_board.html', {'mentees':mentees})
