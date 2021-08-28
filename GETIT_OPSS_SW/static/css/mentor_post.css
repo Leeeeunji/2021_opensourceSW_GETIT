@@ -14,6 +14,7 @@ html, body {
   align-items: center;
   justify-content: center;
   margin-left: 10%;
+  font-family: "font-family:Nanum Gothic";
 }
 
 .detailtextbox{
@@ -25,6 +26,7 @@ html, body {
   align-items: center;
   justify-content: center;
   margin-left: 100%; 
+  font-family: "font-family:Nanum Gothic";
 }
 
 .wrap {
@@ -33,6 +35,7 @@ html, body {
   align-items: center;
   justify-content: center;
 
+  font-family: "font-family:Nanum Gothic";
   text-align: center;
   padding: 5%;
   font-size: 3vw;
@@ -44,7 +47,7 @@ html, body {
   height: 100%;
   padding-top: 1.5%;
   padding-bottom: 1.5%;
-  font-family: 'Roboto', sans-serif;
+  font-family: "font-family:Nanum Gothic";
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
@@ -68,10 +71,11 @@ html, body {
   color: #fff;
   transform: translateY(-7px);
 }
+
 .menutitle{
   text-align: center;
-  width: 250px;
-  height: 100px;
+  width: 200px;
+  height: 80px;
   line-height: 100px;
   background-color: #44A8D8;
 }
