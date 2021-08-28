@@ -15,6 +15,9 @@ def mentor_list(request):
 def mentor_detail(request):
     return render(request, 'mentor_detail.html')
 
+def mentor_board(request):
+    return render(request, 'mentor_board.html')
+
 def mentee_post(request):
     return render(request, 'mentee_post.html')
 
@@ -23,6 +26,9 @@ def mentee_list(request):
 
 def mentee_detail(request):
     return render(request, 'mentee_detail.html')
+
+def mentee_board(request):
+    return render(request, 'mentee_board.html')
 
 def base(request):
     return render(request, 'base.html')
@@ -57,13 +63,6 @@ def create2(request):
     mentee_blog.save()
     return redirect('main')
 
-def mypage(request):
-    return render(request, 'mypage.html')
-
-def mentor_board(request):
-    mentors = mentor.objects.all() #멘토가 작성한 글의 모든 요소 가져오기
-    return render(request, 'mentor_board.html', {'mentors':mentors})
-
-def mentee_board(request):
-    mentees = mentee.objects.all() #멘티가 작성한 글의 모든 요소 가져오기
-    return render(request, 'mentee_board.html', {'mentees':mentees})
+def mypage(request, username):
+    user = get_object_or_404(get_user_model(), username=username)
+    return render(request, 'mypage.html', {'user':user})

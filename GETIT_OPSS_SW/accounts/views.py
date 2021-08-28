@@ -33,5 +33,5 @@ def login_request(request):
 def logout_request(request):
     if request.method == 'POST':
         auth.logout(request)
-        return redirect('/')
+        return redirect('/login')
     return redirect('/')

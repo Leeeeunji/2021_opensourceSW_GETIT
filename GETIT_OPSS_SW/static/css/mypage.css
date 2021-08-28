@@ -1,0 +1,52 @@
+#section #info {
+    font-size: 30px;
+    width:80%;
+    margin-left: 21%;
+    line-height:20px;
+    text-align: left;
+    margin-top: -210px;
+}
+
+#section #info #info-con {
+    font-size: 25px;
+    width:95%;
+    margin-top: -45px;
+    margin-left: 20px;
+    text-align: left;
+    line-height: 50px;
+}
+
+#section #room {
+    font-size: 15px;
+    width:100%;
+    line-height:20px;
+    text-align: left;
+}
+
+#section #class {
+    font-size: 15px;
+    width:100%;
+    line-height:20px;
+    text-align: left;
+}
+
+#section #chat {
+    font-size: 15px;
+    width:100%;
+    line-height:20px;
+    text-align: left;
+}
+
+#section #photo{
+    width:fit-content;
+    height: 200px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+#nav {
+    background-color: aquamarine;
+    width: 15%;
+    height: 700px;
+    float: left;
+}
