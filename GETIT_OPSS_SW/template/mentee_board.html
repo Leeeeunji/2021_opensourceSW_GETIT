@@ -1,0 +1,10 @@
+{% for mentee in mentees %}
+    <h1> 멘티 글 목록 </h1>
+    <div class="card">
+        <div class="card-body">
+            <p class="title"> 제목 : {{ mentee.title }}</p>
+            <p class="user">작성자 : {{ mentee.user }}</p>
+            <p class="recruit_term">모짐 기간 : {{ mentee.recruit_startdate }} ~ {{ mentee.recruit_enddate }} </p>
+        </div>
+    </div>
+{% endfor %}

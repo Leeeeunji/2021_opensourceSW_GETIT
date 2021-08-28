@@ -18,6 +18,7 @@
         body {
             margin: 0;
             padding: 0;
+            height: 100%
         }
 
         .blind {
@@ -29,26 +30,6 @@
             margin: -1px;
             overflow: hidden;
             clip: rect(0, 0, 0, 0);
-        }
-
-        header {
-            height: 150px;
-            background-color: rgb(255, 212, 0);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white
-        }
-
-        header1 {
-            height: 80px;
-            background-color: #b9b9b975;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white
         }
 
         a {
@@ -153,6 +134,29 @@
         ul li:hover>ul {
             display: block;
         }
+
+        #rounded-rectangle {
+            width: 30%;
+            padding-bottom: 3%;
+            margin-left: 5%;
+            margin-top: 5%;
+            padding-top: auto;
+            padding-bottom: auto;
+            text-align: center;
+
+            background-color: #ffd400;
+            border-radius: 63px 63px 0px 0px;
+        }
+
+        #background-rectangle {
+            width: 90%;
+            margin-left: 5%;
+            text-align: center;
+
+            background-color: #FBF9F8;
+            box-shadow: 9px 10px 17px rgba(0, 0, 0, 0.1);
+            border-radius: 0px 0px 30px 30px;
+        }
     </style>
 
 </head>
@@ -199,91 +203,85 @@
 
 
 <body>
+    <div id="rounded-rectangle" style="font-size: 2vw; font-weight: bold;">글 작성하기</div>
+    <div id="background-rectangle">
+        <form action="{% url 'create2' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div style="width: 700px" ; align="center">
+                <div style="line-height: 100%; font-size:20px;">
+                    <h4>제목</h4>
+                    <input type="text" name="title" class="textbox"><br></br>
+                </div>
     
-    <header>
-        <h1>Mentee 글쓰기 페이지</h1>
-    </header>
-
+                <div style="line-height: 100%; font-size:20px;">
+                    <h4>교육을 원하는 시간대</h4>
+                    <input type="text" name="study_times" class="textbox"><br></br>
+                </div>
     
-    <header1>
-        <h3>Mentee님의 멘토링 정보를 적어주세요!</h3>
-    </header1>
-    <br>
-
-    <form action="{% url 'create2' %}" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div style="width: 700px" ; align="center">
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>제목</h4>
-                <input type="text" name="title" class="textbox"><br></br>
-            </div>
-
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>교육을 원하는 시간대</h4>
-                <input type="text" name="study_times" class="textbox"><br></br>
-            </div>
-
-            <!-- <div>
-                <h4>멘토링 형식</h4>
-                <input type="radio" id="Online" value="온라인" name="mentoringType_Choices">
-                <label for="Online">온라인</label><br>
-                <input type="radio" id="Offline" value="오프라인" name="mentoringType_Choices">
-                <label for="Offline">오프라인</label><br>
-            </div> -->
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>멘토링 형식</h4>
-                <input type="text" name="mentoringType" class="textbox"><br></br>
-            </div>
-            <!-- <div>
-                <h4>멘토링 분야</h4>
-                <input type="radio" id="Study" value="학습" name="partMentor_Choices">
-                <label for="Study">학습</label><br>
-                <input type="radio" id="Digital" value="디지털" name="partMentor_Choices">
-                <label for="Digital">디지털</label><br>
-            </div> -->
-
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>멘토링 Part</h4>
-                <input type="text" name="partMentor" class="textbox"><br></br>
-            </div>
-
-        
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>모집 기관</h4>
-                <input type="text" name="recruit_center" class="textbox"><br></br>
-            </div>
-
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>모집기관 위도</h4>
-                <input type="number" id="center" name="center_latitude" value="0.0" class="textbox"><br></br>
-            </div>
-
-
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>모집기관 경도</h4>
-                <input type="number" id="center" name="center_longitude" value="0.0" class="textbox"><br></br>
-            </div>
-
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>봉사 장소</h4>
-                <input type="text" name="volun_place" class="textbox"><br></br>
-            </div>
-
+                <!-- <div>
+                    <h4>멘토링 형식</h4>
+                    <input type="radio" id="Online" value="온라인" name="mentoringType_Choices">
+                    <label for="Online">온라인</label><br>
+                    <input type="radio" id="Offline" value="오프라인" name="mentoringType_Choices">
+                    <label for="Offline">오프라인</label><br>
+                </div> -->
+                <div style="line-height: 100%; font-size:20px;">
+                    <h4>멘토링 형식</h4>
+                    <input type="text" name="mentoringType" class="textbox"><br></br>
+                </div>
+                <!-- <div>
+                    <h4>멘토링 분야</h4>
+                    <input type="radio" id="Study" value="학습" name="partMentor_Choices">
+                    <label for="Study">학습</label><br>
+                    <input type="radio" id="Digital" value="디지털" name="partMentor_Choices">
+                    <label for="Digital">디지털</label><br>
+                </div> -->
+    
+                <div style="line-height: 100%; font-size:20px;">
+                    <h4>멘토링 Part</h4>
+                    <input type="text" name="partMentor" class="textbox"><br></br>
+                </div>
+    
             
-
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>첨부파일</h4>
-                <input type="file" name="files"><br></br>
+                <div style="line-height: 100%; font-size:20px;">
+                    <h4>모집 기관</h4>
+                    <input type="text" name="recruit_center" class="textbox"><br></br>
+                </div>
+    
+                <div style="line-height: 100%; font-size:20px;">
+                    <h4>모집기관 위도</h4>
+                    <input type="number" id="center" name="center_latitude" value="0.0" class="textbox"><br></br>
+                </div>
+    
+    
+                <div style="line-height: 100%; font-size:20px;">
+                    <h4>모집기관 경도</h4>
+                    <input type="number" id="center" name="center_longitude" value="0.0" class="textbox"><br></br>
+                </div>
+    
+                <div style="line-height: 100%; font-size:20px;">
+                    <h4>봉사 장소</h4>
+                    <input type="text" name="volun_place" class="textbox"><br></br>
+                </div>
+    
+                
+    
+                <div style="line-height: 100%; font-size:20px;">
+                    <h4>첨부파일</h4>
+                    <input type="file" name="files"><br></br>
+                </div>
             </div>
-        </div>
+    
+    
+            <div class="wrap">
+                <button type="submit" value="글쓰기" class="button">글쓰기</button><br></br>
+            </div>
+    
+    
+        </form>
+    </div>
 
-
-        <div class="wrap">
-            <button type="submit" value="글쓰기" class="button">글쓰기</button><br></br>
-        </div>
-
-
-    </form>
+    
 </body>
 
 {% endblock %}

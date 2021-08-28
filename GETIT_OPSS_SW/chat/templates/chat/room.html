@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class = "log-box">
-        <textarea id="name-area" readonly="readonly" disabled>name</textarea><br>
+        <textarea id="name-area" readonly="readonly" disabled>Chat Room</textarea><br>
         <textarea id="chat-log" readonly="readonly" disabled></textarea><br>
     </div>
 
@@ -48,7 +48,7 @@
 
         document.querySelector('#chat-message-submit').onclick = function(e) {
             const messageInputDom = document.querySelector('#chat-message-input');
-            const message = "name : " + messageInputDom.value; // 마이페이지와의 연동으로 닉네임을 표시할 수 있는 부분
+            const message = messageInputDom.value;
             chatSocket.send(JSON.stringify({
                 'message': message
             }));

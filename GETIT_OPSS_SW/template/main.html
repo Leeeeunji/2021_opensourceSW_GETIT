@@ -1,4 +1,99 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Main 화면입니다..</h1>
+
+<link rel="stylesheet" href="../../static/css/main.css">
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<style>
+    body {
+        font-family: 'Baloo Tamma', cursive;
+        background: #fcfcfc;
+    }
+
+    h1 {
+        font-size: 50px;
+        min-width: 11px;
+        font-style: Fantasy;
+        white-space: nowrap;
+        margin: 0;
+        position: fixed;
+        color: transparent;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: -300px;
+        margin-left: -2%;
+    }
+
+    h1::before {
+        content: "WELCOME TO CANDLE EDU 💛";
+        position: absolute;
+        font-family: "Maplestory Bold";
+
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #FFD400;
+        overflow: hidden;
+        border-right: 5px solid #44A8D8;
+        animation: typing 8s steps(31) infinite;
+    }
+
+    @keyframes typing {
+        0% {
+            width: 0%;
+        }
+
+        50% {
+            width: 100%;
+        }
+
+        100% {
+            width: 0%;
+        }
+    }
+</style>
+
+
+
+<div style="width: 1000%;">
+
+    <h1>WELCOME TO CANDLE EDU !</h1>
+
+
+
+    <div style="text-align: center; margin: 0 auto; width: 100%; margin-left: 2.7%; margin-top: 100px;">
+        <br></br>
+        <div class="wrap" style="float:left">
+            <button class="button" onclick="location.href='/mentor_detail'"
+                style="margin-right: 100px; margin-left: 10px;">
+                <br>
+                <h3>MENTOR</h3>
+                <h5>정보를<br>공유하고<br>싶어요!</h5>
+            </button>
+        </div>
+
+        <div class="wrap" style="float:left">
+            <button class="button2" onclick="location.href='/mentee_detail'"
+                style="margin-right: 100px; margin-bottom: 20px;">
+                <br>
+                <h3>MENTEE</h3>
+                <h5>정보를<br>배우고<br>싶어요!</h5>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
 {% endblock %}

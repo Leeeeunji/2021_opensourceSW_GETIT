@@ -2,20 +2,21 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>   
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
     <title>GETIT</title>
     <link rel="stylesheet" href="../../static/css/base.css">
     <style>
-    @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
-       
+        @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
     </style>
 </head>
+
 <body>
     <div class="header">
         <div class="nav-item">
@@ -38,13 +39,14 @@
             {% endif %}
         </div>
     </div>
-    <div class ="con"> 
+    <div class="con">
         {% block content %}
-            <!-- 다른 템플릿에서 이 템플릿을 상속받아 사용할 때 이 위치에 코드들이 적용된다. -->
+        <!-- 다른 템플릿에서 이 템플릿을 상속받아 사용할 때 이 위치에 코드들이 적용된다. -->
         {% endblock %}
     </div>
     <div id="footer">
         <h2>FOOTER 영역</h2>
     </div>
- </body>
+</body>
+
 </html>
