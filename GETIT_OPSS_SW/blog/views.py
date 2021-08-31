@@ -22,6 +22,9 @@ def mentor_detail(request):
     }
     return render(request, 'mentor_detail.html', context)
 
+def mentor_board(request):
+    return render(request, 'mentor_board.html')
+
 def mentee_post(request):
     return render(request, 'mentee_post.html')
 
@@ -38,6 +41,9 @@ def mentee_detail(request):
         'person' : person
     }
     return render(request, 'mentee_detail.html', context)
+
+def mentee_board(request):
+    return render(request, 'mentee_board.html')
 
 def base(request):
     return render(request, 'base.html')
@@ -72,5 +78,6 @@ def create2(request):
     mentee_blog.save()
     return redirect('main')
 
-def mypage(request):
-    return render(request, 'mypage.html')
+def mypage(request, username):
+    user = get_object_or_404(get_user_model(), username=username)
+    return render(request, 'mypage.html', {'user':user})

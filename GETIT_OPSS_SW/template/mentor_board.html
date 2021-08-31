@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <link rel="stylesheet" href="../../static/css/mentor_list.css">
+    <div id="nav">
+        <h2>nav 영역</h2>
+    </div>
+    <div id="section">
+        {% for mentor in mentors %}
+            <h1> 멘토 글 목록 </h1>
+            <div class="card">
+                <div class="card-body">
+                    <p class="title"> 제목 : {{ mentor.title }}</p>
+                    <p class="user">작성자 : {{ mentor.user }}</p>
+                    <p class="recruit_term">모짐 기간 : {{ mentor.recruit_startdate }} ~ {{ mentor.recruit_enddate }} </p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>  
+{% endblock %}

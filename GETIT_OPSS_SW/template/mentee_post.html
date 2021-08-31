@@ -3,15 +3,12 @@
 
 <link rel="stylesheet" href="../../static/css/mentee_post.css">
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>Mentor Board</title>
+    <title>Mentee Board</title>
 
     <style>
         html,
@@ -31,25 +28,6 @@
             clip: rect(0, 0, 0, 0);
         }
 
-        header {
-            height: 150px;
-            background-color: rgb(255, 212, 0);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white
-        }
-
-        header1 {
-            height: 80px;
-            background-color: #b9b9b975;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white
-        }
 
         a {
             text-decoration: none;
@@ -63,7 +41,7 @@
             line-height: 50px;
             font-size: 24px;
             text-align: center;
-            background-color: #44A8D8;
+            background-color: rgb(255, 212, 0);
 
         }
 
@@ -76,42 +54,21 @@
         }
 
         .side_list {
+            font-family: "font-family:Nanum Gothic";
             position: absolute;
             left: -250px;
             top: 150px;
             bottom: 0;
             border-right: 1px solid #000;
-            width: 250px;
+            width: 200px;
             font-size: 24px;
             transition: 0.3s ease-in;
             background-color: rgb(243, 243, 243);
             border-bottom: 1px #000;
         }
 
-        .side_link {
-            display: block;
-            text-align: center;
-            padding: 40px 0;
-            border-bottom: 1px solid #000;
-        }
-
-        .main {
-            margin-left: 250px;
-            font-size: 20px;
-            padding: 0px 10px;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        h4 {
-            margin-left: 350px;
-            display: inline;
-            position: static;
-        }
-
         #sidebar {
+            font-family: "font-family:Nanum Gothic";
             float: left;
         }
 
@@ -121,7 +78,7 @@
             padding: 0px;
             position: relative;
             text-align: center;
-
+            font-family: "font-family:Nanum Gothic";
         }
 
         ul li a {
@@ -130,14 +87,15 @@
             width: 150px;
             height: 50px;
             line-height: 50px;
+            font-family: "font-family:Nanum Gothic";
         }
 
         li {
-            width: 250px;
-            background-color: #8FCEEC;
+            width: 200px;
+            background-color: rgb(255, 233, 122);
             text-align: center;
+            font-family: "font-family:Nanum Gothic";
         }
-
 
 
         ul li:hover {
@@ -148,10 +106,41 @@
             display: none;
             position: absolute;
             top: 50px;
+            font-family: "font-family:Nanum Gothic";
         }
 
         ul li:hover>ul {
             display: block;
+        }
+
+        #rounded-rectangle {
+            width: 30%;
+            height: 100%;
+            margin-left: 5%;
+            margin-top: 5%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            text-align: center;
+
+            background-color: #ffd400;
+            border-radius: 63px 63px 0px 0px;
+        }
+
+        #background-rectangle {
+            width: 80%;
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-bottom: 5%;
+
+            background-color: #FBF9F8;
+            box-shadow: 9px 10px 17px rgba(0, 0, 0, 0.1);
+            border-radius: 0px 0px 30px 30px;
+
+            font-family: "font-family:Nanum Gothic";
+            text-align: center;
+            padding: 5%;
+            font-size: 3vw;
+            font-weight: bold;
         }
     </style>
 
@@ -178,7 +167,7 @@
                 </li>
             </ul>
         </div>
-        <br></br> <br></br> <br></br> <br></br> <br></br><br></br>
+        <br></br> <br></br> <br></br> <br></br><br></br>
         <div id="sidebar">
             <ul>
                 <li>
@@ -198,91 +187,61 @@
 
 
 
-<body>
-    
-    <header>
-        <h1>Mentee 글쓰기 페이지</h1>
-    </header>
+<body bgcolor="white">
 
-    
-    <header1>
-        <h3>Mentee님의 멘토링 정보를 적어주세요!</h3>
-    </header1>
-    <br>
-
-    <form action="{% url 'create2' %}" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div style="width: 700px" ; align="center">
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>제목</h4>
+    <form action="{% url 'create' %}" method="post" enctype="multipart/form-data">
+        <div id="rounded-rectangle" style="font-size: 2vw; font-weight: bold;">글 작성하기</div>
+        <div id="background-rectangle">
+            {% csrf_token %}
+            <div>
+                제목
                 <input type="text" name="title" class="textbox"><br></br>
-            </div>
+                모집 시작일
+                <input type="date" name="recruit_startdate" class="textbox"><br></br>
+                모집 종료일
+                <input type="date" name="recruit_endDate" class="textbox"><br></br>
+                봉사 시작일
+                <input type="date" name="volun_startDate" class="textbox"><br></br>
+                봉사 종료일
+                <input type="date" name="volun_endDate" class="textbox"><br></br>
+                봉사 시간
+                <input type="text" name="volun_times" class="textbox"><br></br>
+                봉사 요일
+                <input type="text" name="volun_day" class="textbox"><br></br>
+                모집 정원
+                <input type="number" id="usernumber" name="recruit_number" value="0" class="textbox"><br></br>
 
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>교육을 원하는 시간대</h4>
-                <input type="text" name="study_times" class="textbox"><br></br>
-            </div>
-
-            <!-- <div>
-                <h4>멘토링 형식</h4>
-                <input type="radio" id="Online" value="온라인" name="mentoringType_Choices">
-                <label for="Online">온라인</label><br>
-                <input type="radio" id="Offline" value="오프라인" name="mentoringType_Choices">
-                <label for="Offline">오프라인</label><br>
-            </div> -->
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>멘토링 형식</h4>
-                <input type="text" name="mentoringType" class="textbox"><br></br>
-            </div>
-            <!-- <div>
-                <h4>멘토링 분야</h4>
-                <input type="radio" id="Study" value="학습" name="partMentor_Choices">
-                <label for="Study">학습</label><br>
-                <input type="radio" id="Digital" value="디지털" name="partMentor_Choices">
-                <label for="Digital">디지털</label><br>
-            </div> -->
-
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>멘토링 Part</h4>
-                <input type="text" name="partMentor" class="textbox"><br></br>
-            </div>
-
-        
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>모집 기관</h4>
+                봉사 TYPE
+                <select name="volunType_Choices" class="textbox">
+                    <option value="none">===선택====</option>
+                    <option value="online">온라인</option>
+                    <option value="offline">오프라인</option>
+                </select><br></br>
+                
+                봉사 기관
+                <input type="text" name="volunType" class="textbox"><br></br>
+                모집 기관
                 <input type="text" name="recruit_center" class="textbox"><br></br>
-            </div>
-
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>모집기관 위도</h4>
+                모집기관 위도
                 <input type="number" id="center" name="center_latitude" value="0.0" class="textbox"><br></br>
-            </div>
-
-
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>모집기관 경도</h4>
+                모집기관 경도
                 <input type="number" id="center" name="center_longitude" value="0.0" class="textbox"><br></br>
-            </div>
-
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>봉사 장소</h4>
+                봉사 장소
                 <input type="text" name="volun_place" class="textbox"><br></br>
-            </div>
-
-            
-
-            <div style="line-height: 100%; font-size:20px;">
-                <h4>첨부파일</h4>
+                봉사 대상
+                <input type="text" name="volun_for" class="textbox"><br></br>
+                <!--
+                    상세 정보
+                    <input type="text" name="detail" class="textbox"><br></br>
+                -->
+                첨부파일  
                 <input type="file" name="files"><br></br>
+
+                <div class="wrap">
+                    <button type="submit" value="글쓰기" class="button">글쓰기</button><br></br>
+                </div>
             </div>
         </div>
-
-
-        <div class="wrap">
-            <button type="submit" value="글쓰기" class="button">글쓰기</button><br></br>
-        </div>
-
-
     </form>
 </body>
 

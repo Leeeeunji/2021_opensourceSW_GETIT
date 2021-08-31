@@ -1,8 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
-
-    
+<link rel="stylesheet" href="../../static/css/mypage.css">
     <h1> 마이페이지 </h1>
-
+    <div id="nav">
+        <h2>nav 영역</h2>
+    </div>
+    <div id="section">
+        <div id="content">
+            <div id ="photo">
+              <img src="../../media/profile/basic_profile.jpg" width="250px">
+            </div>
+            <div id="info">
+              <h2>개인정보</h2><hr style="border:2px color= silver;" width="99%"><br>
+              <div id="info-con">
+                <p>
+                아이디 ｜ {{user.username}}<br>
+                이름 ｜     <br>
+                전화번호 ｜     <br>
+                소속 ｜     <br>
+                </p>
+              </div>
+            </div>
+            <div id ="room">
+              <h2>나의 강의실<h2><hr style="border:2px color= silver;" width="100%"><br>
+            </div>
+            <div id ="class">
+              <h2>내가 찜한 강의들</h2><hr style="border:2px color= silver;" width="100%"><br>
+            </div>
+            <div id ="chat">
+              <h2>나의 채팅방</h2><hr style="border:2px color= silver;" width="100%"><br>
+            </div>
+        </div>
+    </div> 
 
 {% endblock %}

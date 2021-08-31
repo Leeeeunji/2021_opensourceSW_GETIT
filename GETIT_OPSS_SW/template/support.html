@@ -1,14 +1,181 @@
 {% extends 'base.html' %}
 {% block content %}
-<!-- <link rel="stylesheet" href="../../static/css/mentor_list.css"> -->
-<!-- <div id="nav">
-    <h2>nav 영역</h2>
-</div>
-<div id="section">
-    <h2>support 페이지 입니당</h2>
-</div> -->
+<link rel="stylesheet" href="../../static/css/support.css">
 
-<h2>support 페이지 입니당</h2>
+<!DOCTYPE html>
+<html>
 
+<style>
+    h1 {
+        text-align: center;
+        font-family: Nanum Gothic;
+        font-size: 45px;
+    }
+
+    h1:hover {
+        text-decoration: underline;
+    }
+
+    h2 {
+        text-align: left;
+        font-family: Nanum Gothic;
+        font-size: 33px;
+    }
+
+    h3 {
+        text-align: left;
+        margin-left: 5%;
+        font-family: Nanum Gothic;
+        font-size: 28px;
+    }
+
+    h4 {
+        text-align: left;
+        margin-left: 5%;
+        font-family: Nanum Gothic;
+        font-size: 20px;
+    }
+
+    h5 {
+        text-align: left;
+        margin-left: 5%;
+        font-family: Nanum Gothic;
+        font-size: 35px;
+    }
+
+    h5 {
+        font-size: 50px;
+        min-width: 11px;
+        white-space: nowrap;
+        margin: 0;
+        position: absolute;
+        color: transparent;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: -300px;
+        margin-left: -2%;
+    }
+
+    h5::before {
+        content: "CANDLE EDU 사용 도움말";
+        font-family: "Nanum Gothic";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #FFD400;
+        overflow: hidden;
+        border-right: 5px solid #44A8D8;
+        animation: typing 8s steps(31) infinite;
+    }
+
+    @keyframes typing {
+        0% {
+            width: 0%;
+        }
+
+        50% {
+            width: 100%;
+        }
+
+        100% {
+            width: 0%;
+        }
+    }
+
+    #background-rectangle1 {
+        width: 90%;
+        height: 50%;
+        margin-left: 3%;
+        text-align: center;
+        background-color: rgba(255, 233, 122, 0.5);
+        box-shadow: 9px 10px 17px rgba(0, 0, 0, 0.1);
+        /* border-radius: 50px 50px 50px 50px; */
+    }
+
+    #background-rectangle2 {
+        width: 90%;
+        height: 50%;
+        margin-left: 3%;
+        text-align: center;
+        background-color: #8fceec9c;
+        box-shadow: 9px 10px 17px rgba(0, 0, 0, 0.1);
+        /* border-radius: 50px 50px 50px 50px; */
+    }
+
+    #background-rectangle3 {
+        width: 50%;
+        height: 50%;
+        margin-left: 3%;
+        text-align: center;
+        background-color: #8fceec9c;
+        box-shadow: 9px 10px 17px rgba(0, 0, 0, 0.1);
+        border-radius: 50px 50px 50px 50px;
+    }
+</style>
+
+
+<body>
+
+    <div id="background-rectangle3">
+        <h5>CANDLE EDU 사용 도움말</h5>
+    </div>
+
+    <div id="background-rectangle1" style="margin-top: 130px;">
+        <h2>&#9997;CANDLE EDU ?</h2>
+        <h3>"한 개의 촛불로서 많은 촛불에 불을 붙여도 처음의 촛불의 빛은 약해지지 않는다." _탈무드</h3>
+        <h4>'CANDLE EDU'는 탈무드의 위 구절이 저희 플랫폼이 목표로 이루고자 하는 바에 걸맞고,
+            이 중 '촛불'이라는 단어가 이를 가장 잘 나타내는 단어라고 생각되어
+            플랫폼의 이름을 'CANDLE EDU'라고 짓게 되었습니다.</h4>
+        <br>
+
+    </div>
+
+    <div id="background-rectangle2" style="text-align: center; align-items: center;">
+        <h2>&#128077;CANDLE EDU는 어떤 교육 플랫폼일까요?</h2>
+        <h3>1. 타인에 비해 상대적으로 교육에 어려움을 겪는 이들을 위한 무료 교육 플랫폼입니다.</h3>
+        <h4>"배우고 싶은 것은 배울 수 있어야 한다"는 저희의 신념에 맞게 사회적으로 어려운 사람
+            이라고 할 지라도 자신이 배우고 싶은 것은 배울 수 있도록
+            개인의 학습권 보장에 앞서는 교육 플랫폼입니다.</h4>
+        <h4>다양한 분야의 멘토들을 모집하여 교육을 진행해 나갈 생각입니다.</h4>
+        <h3>2. 기존에 존재하던 다소 불편한 교육 매칭 서비스의 방식을 개선한 교육 플랫폼입니다.</h3>
+        <h4>기존에 존재하던 교육 플랫폼의 교육 매칭 서비스는 많은 사람들, 다양한 계층의 사람들이
+            이용하기에는 다소 불편한 부분들이 존재했습니다.
+        </h4>
+        <h4>저희 CANDLE EDU에서는 그러한 불편한 부분들을 해소하기 위해 노력했습니다.</h4><br>
+    </div>
+
+    <div id="background-rectangle1">
+        <h2>&#10068; CANDLE EDU를 어떻게 사용해야 할까요?</h2>
+        <body>       
+            <h3>1. 멘토/멘티 선택 페이지</h3>
+            <img src="../../media/support/main.PNG" style="margin-right:20px; " width="800px">
+            <h4>멘토/멘티 페이지에서 자신이 멘토로써 사이트를 이용할 것인지,</h4>
+            <h4>멘티로써 사이트를 이용할 것인지 선택합니다.</h4>
+
+            <h3>2. 로그인 페이지</h3>
+            <img src="../../media/support/login.PNG" style="margin-right:20px; " width="800px">
+            <h4>사전에 가입한 자신의 CANDLE EDU계정으로 로그인합니다. </h4>
+
+            <h3>2-1. 회원가입 페이지</h3>
+            <img src="../../media/support/signup.PNG" style="margin-right:20px; " width="800px">
+            <h4>CANDLE EDU의 계정이 없는 사용자의 경우,</h4>
+            <h4>로그인 페이지에서 회원가입(Sign up)을 클릭하여 회원가입할 수 있습니다.</h4>
+
+
+
+     
+        </body>
+    </div>
+
+
+
+</body>
+
+
+
+</html>
 
 {% endblock %}
