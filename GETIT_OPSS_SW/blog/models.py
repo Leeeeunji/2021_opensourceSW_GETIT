@@ -20,7 +20,7 @@ class mentor(models.Model):
     volun_day = models.TextField(blank=True) #그냥 입력하게 하도록 #봉사요일
    
     recruit_number = models.IntegerField(default=0, blank=True) #모집정원
-    volunType_Choices = (('Onine', '온라인'), ('Offline', '오프라인'))
+    volunType_Choices = (('Online', '온라인'), ('Offline', '오프라인'))
     volunType = models.CharField(null=True, max_length=10, choices=volunType_Choices)  
 
     #아래부터는 자세한사항 미정이므로 TextField로 임시설정, verbose_name='봉사 분야') #봉사 분야

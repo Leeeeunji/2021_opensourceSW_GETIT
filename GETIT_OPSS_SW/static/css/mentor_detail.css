@@ -8,7 +8,7 @@ body {
     height: 100%;
 }
 
-#title-button {
+.title-button {
     border-radius: 8px;
     border-color:aliceblue;
     background-color: #44A8D8;
@@ -19,7 +19,14 @@ body {
     font-size:25px;
 }
 
-#title {
+#writer {
+    background-color: #ced4da;
+    color:#202A44;
+    font-size:15px;
+    text-align: right;
+}
+
+.title {
     border-top-color: #ced4da;
     border-bottom-color:#ced4da;
     color: #202A44;
@@ -43,3 +50,9 @@ td:nth-child(2n+0){width:400px;}
 #map {
     display: inline-block;
 }
+
+#pub-date {
+    text-align: right;
+    font-size: 15px;
+}
+

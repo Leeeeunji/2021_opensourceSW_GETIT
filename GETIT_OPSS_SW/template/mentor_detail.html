@@ -9,16 +9,153 @@
         td, tr {
             border:1px solid; padding: 10px 5px; border-collapse:collapse;
         }
+        .blind {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+        .side_toggle_btn::before {
+
+            content: ">";
+            display: inline-block;
+            width: 75px;
+            line-height: 50px;
+            font-size: 24px;
+            text-align: center;
+            background-color: #44A8D8;
+
+        }
+
+        .side_input:checked+.side_toggle_btn::before {
+            content: "<";
+        }
+
+        .side_input:checked~.side_list {
+            left: 0;
+        }
+
+        .side_list {
+            position: absolute;
+            left: -250px;
+            top: 150px;
+            bottom: 0;
+            border-right: 1px solid #000;
+            width: 250px;
+            font-size: 24px;
+            transition: 0.3s ease-in;
+            background-color: rgb(243, 243, 243);
+            border-bottom: 1px #000;
+        }
+
+        .side_link {
+            display: block;
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid #000;
+        }
+
+        .main {
+            margin-left: 250px;
+            font-size: 20px;
+            padding: 0px 10px;
+        }
+
+        #sidebar {
+            float: left;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            position: relative;
+            text-align: center;
+
+        }
+
+        ul li a {
+            text-decoration: none;
+            display: block;
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        li {
+            width: 250px;
+            background-color: #8FCEEC;
+            text-align: center;
+        }
+
+
+
+        ul li:hover {
+            background-color: rgb(238, 238, 238);
+        }
+
+        ul ul {
+            display: none;
+            position: absolute;
+            top: 50px;
+        }
+
+        ul li:hover>ul {
+            display: block;
+        }
     </style>
     <div id="middle">
-        <div id="nav" style="float:left;">
-        
+        <div>
+            <div id="sidebar">
+                <div class="menutitle">MENTOR</div>
+                <ul>
+                    <li>
+                        <a href="#">개인 교육</a>
+                        <ul>
+                            <li><a href="#">초등</a></li>
+                            <li><a href="#">중등</a></li>
+                            <li><a href="#">고등</a></li>
+                            <li><a href="#">기타</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <br><br><br><br><br><br>
+            <div id="sidebar">
+                <ul>
+                    <li>
+                        <a href="#">단체 교육</a>
+                        <ul>
+                            <li><a href="#">초등</a></li>
+                            <li><a href="#">중등</a></li>
+                            <li><a href="#">고등</a></li>
+                            <li><a href="#">기타</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div>
             <div id="content">
-                <div id="title">
-                    <div id="title-button">제목</div>
+                <div class="title">
+                    <div class="title-button">제목</div>
                     {{blog.title}}
+                <div class="title" style="font-size:20px;">
+                    <div class="title-button" id="writer">작성자</div>
+                    {{blog.user}}
+                    <div id="pub-date">{{blog.pub_date}}</div>
+                </div>    
                 </div>
                 <table>
                         <tr>
@@ -85,43 +222,47 @@
                     {{blog.center_longitude}}
                 </div>
 
-                <div id="map" style="font-size:15px;width:700px;height:350px; margin:10px;"></div>
+                {%if blog.center_latitude != 0.0 %}
+                    <div id="center_location" style="width:700px; display:inline-block; margin-top:10px;">
+                        <div id="map" style="font-size:15px;width:700px;height:350px; margin:10px;"></div>
+                        <span style="text-align:left; display:inline-block;margin-top:0px;"><봉사장소 위치></span><br>
+                    </div>
+                    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b50f777e80931e3ecceb48757ca6e4bf&libraries=services,clusterer,drawing"></script>
+                    <script>
+                        var lat = document.getElementById("lat").innerText; 
+                        var lng = document.getElementById("lng").innerText;
+                        var volun_place = document.getElementById("volun_place").innerText;
 
-                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b50f777e80931e3ecceb48757ca6e4bf&libraries=services,clusterer,drawing"></script>
-                <script>
-                    var lat = document.getElementById("lat").innerText; 
-                    var lng = document.getElementById("lng").innerText;
-                    var volun_place = document.getElementById("volun_place").innerText;
+                        var container = document.getElementById('map');
+                        var options = {
+                            center: new kakao.maps.LatLng(lat, lng),
+                            level: 3
+                        };
+                        var coordinate = new kakao.maps.LatLng(lat, lng);
 
-                    var container = document.getElementById('map');
-                    var options = {
-                        center: new kakao.maps.LatLng(lat, lng),
-                        level: 3
-                    };
-                    var coordinate = new kakao.maps.LatLng(lat, lng);
+                        var map = new kakao.maps.Map(container, options);
 
-                    var map = new kakao.maps.Map(container, options);
+                        var marker = new kakao.maps.Marker({
+                                map: map,
+                                position: coordinate,
+                                title: volun_place
+                            });
 
-                    var marker = new kakao.maps.Marker({
-                            map: map,
-                            position: coordinate,
-                            title: volun_place
-                        });
+                        marker.setMap(map); //marker가 지도 위에 표시되도록 설정
 
-                    marker.setMap(map); //marker가 지도 위에 표시되도록 설정
+                        var iwContent = '<div style="padding:5px; display: inline-block;">'+ volun_place +'</div>';
+                        var iwPosition = coordinate; //인포윈도우 표시 위치
+                        var iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼 표시
 
-                    var iwContent = '<div style="padding:5px; display: inline-block;">'+ volun_place +'</div>';
-                    var iwPosition = coordinate; //인포윈도우 표시 위치
-                    var iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼 표시
-
-                    var infoWindow = new kakao.maps.InfoWindow({
-                            //content: list_bdy[idx]
-                            position: iwPosition,
-                            content: iwContent,
-                            removable : iwRemoveable
-                        });
-                    infoWindow.open(map, marker);
-                </script>
+                        var infoWindow = new kakao.maps.InfoWindow({
+                                //content: list_bdy[idx]
+                                position: iwPosition,
+                                content: iwContent,
+                                removable : iwRemoveable
+                            });
+                        infoWindow.open(map, marker);
+                    </script>
+                {% endif %}
 
             </div>
         </div>
