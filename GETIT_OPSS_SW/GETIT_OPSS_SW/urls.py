@@ -27,6 +27,7 @@ urlpatterns = [
     path('base/', base, name="base"), 
     path('accounts/', include('accounts.urls')),
 
+    path('', signup, name="signup" ),
     path('signup/', signup, name="signup" ),
     path('login/', login_request, name="login"),
     path('mypage/<str:username>', mypage, name="mypage"),

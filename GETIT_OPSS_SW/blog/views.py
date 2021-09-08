@@ -16,7 +16,8 @@ def mentor_detail(request):
     return render(request, 'mentor_detail.html')
 
 def mentor_board(request):
-    return render(request, 'mentor_board.html')
+    mentors = mentor.objects.all()
+    return render(request, 'mentor_board.html', {'mentors':mentors})
 
 def mentee_post(request):
     return render(request, 'mentee_post.html')
