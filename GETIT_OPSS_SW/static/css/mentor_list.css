@@ -5,7 +5,6 @@
     margin-right: 20%;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease 0s;
-    cursor: pointer;
 }
 
 .card-body {
@@ -18,12 +17,6 @@
     
 }
 
-.color {
-    background-color:blue;
-    text-align: center;
-    width: 100px;
-    height: 100px;
-}
 
 #section {
     line-height: 30px;

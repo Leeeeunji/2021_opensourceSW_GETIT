@@ -12,9 +12,8 @@ def mentor_list(request):
     return render(request, 'mentor_list.html')
 
 #def mentor_detail(request, id):
-def mentor_detail(request):
-    #blog = get_object_or_404(mentor, pk = id)
-    blog = mentor.objects.first(); # 임시로 첫번째 항목만 전달되도록 해놓음 / 나중에 mentor_post 페이지에서 id 전달되도록 페이지 연결하면 그때 수정
+def mentor_detail(request, id):
+    blog = get_object_or_404(mentor, pk =id)
     person = get_object_or_404(get_user_model(), username=request.user)
     context = {
         'blog' : blog,
@@ -34,8 +33,7 @@ def mentee_list(request):
 
     #def mentee_detail(request, id):
 def mentee_detail(request):
-    #blog = get_object_or_404(mentee, pk = id)
-    blog = mentee.objects.first(); # 임시로 첫번째 항목만 전달되도록 해놓음 / 나중에 mentee_post 페이지에서 id 전달되도록 페이지 연결하면 그때 수정
+    blog = get_object_or_404(mentee, pk = id)
     person = get_object_or_404(get_user_model(), username=request.user)
     context = {
         'blog' : blog,
@@ -44,7 +42,8 @@ def mentee_detail(request):
     return render(request, 'mentee_detail.html', context)
 
 def mentee_board(request):
-    return render(request, 'mentee_board.html')
+    mentees = mentee.objects.all()
+    return render(request, 'mentee_board.html', {'mentees':mentees})
 
 def base(request):
     return render(request, 'base.html')
