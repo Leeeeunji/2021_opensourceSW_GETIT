@@ -1,9 +1,134 @@
 {% extends 'base.html' %}
 {% block content %}
+
+
+<style>
+
+.side_toggle_btn::before {
+
+content: ">";
+display: inline-block;
+width: 75px;
+line-height: 50px;
+font-size: 24px;
+text-align: center;
+background-color: #44A8D8;
+
+}
+
+.side_input:checked+.side_toggle_btn::before {
+content: "<";
+}
+
+.side_input:checked~.side_list {
+left: 0;
+}
+
+.side_list {
+position: absolute;
+left: -250px;
+top: 150px;
+bottom: 0;
+border-right: 1px solid #000;
+width: 250px;
+font-size: 24px;
+transition: 0.3s ease-in;
+background-color: rgb(243, 243, 243);
+border-bottom: 1px #000;
+}
+
+.side_link {
+display: block;
+text-align: center;
+padding: 40px 0;
+border-bottom: 1px solid #000;
+}
+
+.main {
+margin-left: 250px;
+font-size: 20px;
+padding: 0px 10px;
+}
+
+#sidebar {
+float: left;
+}
+
+ul {
+list-style: none;
+margin: 0px;
+padding: 0px;
+position: relative;
+text-align: center;
+position:fixed;
+
+
+}
+
+ul li a {
+text-decoration: none;
+display: block;
+width: 150px;
+height: 50px;
+line-height: 50px;
+}
+
+li {
+width: 250px;
+background-color:  #FFE5A3;
+text-align: center;
+}
+
+
+
+ul li:hover {
+background-color: rgb(238, 238, 238);
+}
+
+ul ul {
+display: none;
+position: absolute;
+top: 50px;
+}
+
+ul li:hover>ul {
+display: block;
+}
+</style>
     <link rel="stylesheet" href="../../static/css/mentor_list.css">
-    <div id="nav">
-        <h2>nav 영역</h2>
-    </div>
+    <div id="middle">
+        <div>
+            <div id="sidebar">
+                <div class="menutitle">MENTEE</div>
+                <ul>
+                    <li>
+                        <a href="#">개인 교육</a>
+                        <ul>
+                            <li><a href="#">초등</a></li>
+                            <li><a href="#">중등</a></li>
+                            <li><a href="#">고등</a></li>
+                            <li><a href="#">기타</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+            <div id="sidebar">
+                <ul>
+                    <li>
+                        <a href="#">단체 교육</a>
+                        <ul>
+                            <li><a href="#">초등</a></li>
+                            <li><a href="#">중등</a></li>
+                            <li><a href="#">고등</a></li>
+                            <li><a href="#">기타</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
     <div id="section">
         <h1> 멘티 글 목록 </h1>
         {% for mentee in mentees %} 
