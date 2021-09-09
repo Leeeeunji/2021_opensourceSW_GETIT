@@ -160,16 +160,16 @@
                 <table>
                         <tr>
                             <td>
-                                모집기간
+                                수업기간
                             </td>
                             <td>
-                                {{blog.recruit_startdate|date:"Y년 m월 d일"}} ~ {{blog.recruit_endDate|date:"Y년 m월 d일"}}
+                                {{blog.startdate|date:"Y년 m월 d일"}} ~ {{blog.endDate|date:"Y년 m월 d일"}}
                             </td>
                             <td>
-                                봉사기간
+                                희망과목
                             </td>
                             <td>
-                                {{blog.volun_startDate|date:"Y년 m월 d일"}} ~ {{blog.volun_endDate|date:"Y년 m월 d일"}}
+                                {{blog.subject}}
                             </td>
                         </tr>
                         <tr>
@@ -183,20 +183,20 @@
                                 봉사 요일
                             </td>
                             <td>
-                                {{blog.volun_day}}
+                                {{blog.study_day}}
                             </td>
                         <tr>
-                            <td>
-                                모집 정원
-                            </td>
-                            <td>
-                                {{blog.recruit_number}}
-                            </td>
                             <td>
                                 봉사 형태
                             </td>
                             <td>
                                 {{blog.mentoringType}}
+                            </td>
+                            <td>
+                                연락처
+                            </td>
+                            <td>
+                                {{blog.phone}}
                             </td>
                         </tr>
                         <tr>
@@ -204,13 +204,13 @@
                                 봉사 장소
                             </td>
                             <td>
-                            <span id="volun_place">{{blog.volun_place}}</span>
+                            <span id="volun_place">{{blog.study_place}}</span>
                             </td>
                             <td>
-                                봉사 대상
+                                학생 구분
                             </td>
                             <td>
-                                {{blog.volun_for}}
+                                {{blog.grade}}
                             </td>
                         </tr>
                 </table>

@@ -64,8 +64,9 @@ body {
 
 #footer {
     background-color: blanchedalmond;
-    height: 350px;
+    height: 150px;
     clear: both;
+    width: 100%;
 }
 
 #nav, #section, #footer { text-align:center; }

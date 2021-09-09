@@ -32,7 +32,7 @@ def mentee_list(request):
     return render(request, 'mentee_list.html')
 
     #def mentee_detail(request, id):
-def mentee_detail(request):
+def mentee_detail(request, id):
     blog = get_object_or_404(mentee, pk = id)
     person = get_object_or_404(get_user_model(), username=request.user)
     context = {
@@ -64,6 +64,13 @@ def create(request):
     mentor_blog.volun_times = request.POST['volun_times']
     mentor_blog.volun_day = request.POST['volun_day']
     mentor_blog.recruit_number = request.POST['recruit_number']
+
+    mentor_blog.recruit_center = request.POST['recruit_center']
+    mentor_blog.volun_place = request.POST['volun_place']
+    mentor_blog.volun_for = request.POST['volun_for']
+
+    mentor_blog.mentoringType = request.POST['mentoringType']
+
     # mentor_blog.detail=request.POST['detail']
     mentor_blog.save()
     return redirect('main')
@@ -73,8 +80,13 @@ def create2(request):
     mentee_blog.title = request.POST['title']
     mentee_blog.user = request.user
     mentee_blog.study_times = request.POST['study_times']
-    mentee_blog.mentoringType = request.POST['mentoringType']
-    mentee_blog.partMentor = request.POST['partMentor']
+    mentee_blog.startdate = request.POST['startdate']
+    mentee_blog.endDate = request.POST['endDate']
+    mentee_blog.study_day = request.POST['study_day']
+    mentee_blog.study_place = request.POST['study_place']
+    mentee_blog.grade = request.POST['grade']
+    mentee_blog.subject = request.POST['subject']
+    mentee_blog.phone = request.POST['phone']
     mentee_blog.save()
     return redirect('main')
 

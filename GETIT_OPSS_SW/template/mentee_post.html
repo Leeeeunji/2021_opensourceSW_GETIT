@@ -189,47 +189,37 @@
 
 <body bgcolor="white">
 
-    <form action="{% url 'create' %}" method="post" enctype="multipart/form-data">
+    <form action="{% url 'create2' %}" method="post" enctype="multipart/form-data">
         <div id="rounded-rectangle" style="font-size: 2vw; font-weight: bold;">글 작성하기</div>
         <div id="background-rectangle">
             {% csrf_token %}
             <div>
                 제목
                 <input type="text" name="title" class="textbox"><br></br>
-                모집 시작일
-                <input type="date" name="recruit_startdate" class="textbox"><br></br>
-                모집 종료일
-                <input type="date" name="recruit_endDate" class="textbox"><br></br>
-                봉사 시작일
-                <input type="date" name="volun_startDate" class="textbox"><br></br>
-                봉사 종료일
-                <input type="date" name="volun_endDate" class="textbox"><br></br>
-                봉사 시간
+                희망 과목
+                <input type="text" name="subject" class="textbox"><br></br>      
+                희망 수업 시작일
+                <input type="date" name="startdate" class="textbox"><br></br>
+                희망 수업 종료일
+                <input type="date" name="endDate" class="textbox"><br></br>
+                수업 시간
                 <input type="text" name="study_times" class="textbox"><br></br>
-                봉사 요일
-                <input type="text" name="volun_day" class="textbox"><br></br>
-                모집 정원
-                <input type="number" id="usernumber" name="recruit_number" value="0" class="textbox"><br></br>
-
-                봉사 TYPE
-                <select name="volunType_Choices" class="textbox">
-                    <option value="none">===선택====</option>
-                    <option value="online">온라인</option>
-                    <option value="offline">오프라인</option>
-                </select><br></br>
+                수업 요일
+                <input type="text" name="study_day" class="textbox"><br></br>
                 
-                봉사 기관
-                <input type="text" name="volunType" class="textbox"><br></br>
-                모집 기관
-                <input type="text" name="recruit_center" class="textbox"><br></br>
+                수업 TYPE
+                <input type="text" name="mentoringType" class="textbox"><br></br>
+                
+                수업 장소
+                <input type="text" name="study_place" class="textbox"><br></br>
                 모집기관 위도
-                <input type="number" id="center" name="center_latitude" value="0.0" class="textbox"><br></br>
+                <input type="number" id="center" name="place_latitude" value="0.0" class="textbox"><br></br>
                 모집기관 경도
-                <input type="number" id="center" name="center_longitude" value="0.0" class="textbox"><br></br>
-                봉사 장소
-                <input type="text" name="volun_place" class="textbox"><br></br>
-                봉사 대상
-                <input type="text" name="volun_for" class="textbox"><br></br>
+                <input type="number" id="center" name="place_longitude" value="0.0" class="textbox"><br></br>
+                학생 구분
+                <input type="text" name="grade" class="textbox"><br></br>
+                연락처
+                <input type="text" name="phone" class="textbox"><br></br>
                 <!--
                     상세 정보
                     <input type="text" name="detail" class="textbox"><br></br>

@@ -40,7 +40,7 @@ urlpatterns = [
     path('mentee_post/', mentee_post, name="mentee_post"),
     path('mentee_list/', mentee_list, name="mentee_list"),
     path('mentee_board/', mentee_board, name="mentee_board"),
-    path('mentee_detail/', mentee_detail, name="mentee_detail"),
+    path('mentee_detail/<str:id>', mentee_detail, name="mentee_detail"),
 
     path('support/', support, name="support"),
 
