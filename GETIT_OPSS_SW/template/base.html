@@ -21,21 +21,23 @@
     <div class="header">
         <div class="nav-item">
             {% if user.is_authenticated %}
-                <div class="hello">
-                    <p style="font-family:Nanum Gothic;" >안녕하세요, {{user.username}}님! </p>
-                </div>
-                <div class="condition">
-                    <a href="{% url 'mypage' user.username %}"> <img src="../../media/profile/basic_profile.jpg" style="margin-right:20px; margin-top:20px;" width="40px"></a>
-                    <a href="javascript:{document.getElementById('logout').submit()}" style="font-family:Nanum Gothic;">Logout</a>
-                    <form id="logout" method="POST" action="{% url 'logout' %}">
-                        {%csrf_token%} <input type="hidden" />
-                    </form>
-                </div>
-                {% else %}
-                <div class="condition2">
-                    <a href="{% url 'signup' %}" style="margin-right:10px;">Signup</a>
-                    <a href="{% url 'login' %}">Login</a>
-                </div>
+            <div class="hello">
+                <p style="font-family:Nanum Gothic;">안녕하세요, {{user.username}}님! </p>
+            </div>
+            <div class="condition">
+                <a href="{% url 'mypage' user.username %}"> <img src="../../media/profile/basic_profile.jpg"
+                        style="margin-right:20px; margin-top:20px;" width="40px"></a>
+                <a href="javascript:{document.getElementById('logout').submit()}"
+                    style="font-family:Nanum Gothic;">Logout</a>
+                <form id="logout" method="POST" action="{% url 'logout' %}">
+                    {%csrf_token%} <input type="hidden" />
+                </form>
+            </div>
+            {% else %}
+            <div class="condition2">
+                <a href="{% url 'signup' %}" style="margin-right:10px;">Signup</a>
+                <a href="{% url 'login' %}">Login</a>
+            </div>
             {% endif %}
         </div>
     </div>
@@ -45,7 +47,21 @@
         {% endblock %}
     </div>
     <div id="footer">
-        <h2>FOOTER 영역</h2>
+        <p align="left" style="font-size: 25px; font-family: Nanum Gothic; line-height: 20px; margin-left: 10px; margin-top: 20px;">💛Team GETIT</p>
+        <p align="left" style="font-size: 18px; font-family: Nanum Gothic; line-height: 10px; margin-left: 10px;">KNU Computer Science</p>
+        <p align="left" style="font-size: 15px; font-family: Nanum Gothic; line-height: 10px; margin-left: 10px;">이은주(Lee Eunjoo) | Contact: leeeun5423@naver.com</p>
+        <p align="left" style="font-size: 15px; font-family: Nanum Gothic;line-height: 10px;margin-left: 10px;">김민주(Kim Minjoo) | Contact: trdcc77@naver.com</p>
+        <p align="left" style="font-size: 15px; font-family: Nanum Gothic;line-height: 10px;margin-left: 10px;">김영효(Kim Younghyo) | Contact: kyh12180@gmail.com</p>
+        <p align="left" style="font-size: 15px; font-family: Nanum Gothic;line-height: 10px;margin-left: 10px;">서경희(Seo Kyounghee) | Contact: lhskh307218@daum.net</p>
+        <p align="left" style="font-size: 15px; font-family: Nanum Gothic;line-height: 10px;margin-left: 10px;">이은지(Lee Eunji) | Contact: dldmswl6233@naver.com</p>
+        <p align="left" style="font-size: 15px; font-family: Nanum Gothic;line-height: 10px;margin-left: 10px;">최희정(Choi Heejung) | Contact: nuly7029@gmail.com</p>
+        <p align="left" style="font-size: 15px; font-family: Nanum Gothic;line-height: 10px;margin-left: 10px;">홍송은(Hong SongEun) | Contact: yellowhong@gmail.com</p>
+        <p align="left" style="font-size: 15px; font-family: Nanum Gothic;line-height: 10px;margin-left: 10px; margin-top: 10px; display: inline;"><a href="{% url 'support' %}">Support</a></p>
+        <p align="left" style="font-size: 15px; font-family: Nanum Gothic;line-height: 10px;margin-left: 10px; margin-top: 10px;display: inline;"><a href="{% url 'main' %}">Main</a></p>
+
+
+        <h6>Copyright 2021. CANDLE EDU All rights reserved.</h6>
+
     </div>
 </body>
 

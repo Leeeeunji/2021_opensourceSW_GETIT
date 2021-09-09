@@ -114,13 +114,194 @@
         box-shadow: 9px 10px 17px rgba(0, 0, 0, 0.1);
         border-radius: 50px 50px 50px 50px;
     }
+
+    .txt span {
+        font-size: 50px;
+        position: relative;
+        display: inline-block;
+        color: black;
+        letter-spacing: -0.8px;
+        animation: txtup 1.5s infinite;
+        -webkit-animation: txtup 1.5s infinite;
+        -ms-animation: txtup 1.5s infinite;
+        -moz-animation: txtup 1.5s infinite;
+    }
+
+    .txt span:nth-of-type(1) {
+        animation-delay: 0.1s;
+    }
+
+    .txt span:nth-of-type(2) {
+        animation-delay: 0.2s;
+    }
+
+    .txt span:nth-of-type(3) {
+        animation-delay: 0.3s;
+    }
+
+    .txt span:nth-of-type(4) {
+        animation-delay: 0.4s;
+    }
+
+    .txt span:nth-of-type(5) {
+        animation-delay: 0.4s;
+    }
+
+    @-webkit-keyframes txtup {
+        0% {
+            top: 0;
+        }
+
+        20% {
+            top: -0.2rem;
+        }
+
+        40% {
+            top: 0;
+        }
+
+        60% {
+            top: 0;
+        }
+
+        80% {
+            top: 0;
+        }
+
+        100% {
+            top: 0
+        }
+    }
+
+    @keyframes txtup {
+        0% {
+            top: 0;
+        }
+
+        20% {
+            top: -0.2rem;
+        }
+
+        40% {
+            top: 0
+        }
+
+        60% {
+            top: 0
+        }
+
+        80% {
+            top: 0
+        }
+
+        100% {
+            top: 0
+        }
+    }
+
+    /* 여기부터 다른 효과 */
+
+    .txt_animate span {
+        color: blue;
+        opacity: 0;
+        transform: translate(-300px, 0) scale(0);
+        animation: txtE 1.5s infinite;
+    }
+
+    @keyframes txtE {
+        60% {
+            transform: translate(20px, 0) scale(1);
+            color: blue;
+        }
+
+        80% {
+            transform: translate(20px, 0) scale(1);
+            color: blue;
+        }
+
+        90% {
+            transform: translate(0) scale(1.2);
+            color: skyblue;
+        }
+
+        100% {
+            transform: translate(0) scale(1);
+            opacity: 1;
+            color: blue;
+        }
+    }
+
+    .txt_animate span:nth-of-type(2) {
+        animation-delay: .05s;
+    }
+
+    .txt_animate span:nth-of-type(3) {
+        animation-delay: .1s;
+    }
+
+    .txt_animate span:nth-of-type(4) {
+        animation-delay: .15s;
+    }
+
+    .txt_animate span:nth-of-type(5) {
+        animation-delay: .2s;
+    }
+
+    .txt_animate span:nth-of-type(6) {
+        animation-delay: .25s;
+    }
+
+    /* 여기부터 새로운 스타일 */
+    .loading span {
+        display: inline-block;
+        margin: 0 -.05em;
+        animation: loading .7s infinite;
+    }
+
+    .loading span:nth-child(2) {
+        animation-delay: .1s;
+    }
+
+    .loading span:nth-child(3) {
+        animation-delay: .2s;
+    }
+
+    .loading span:nth-child(4) {
+        animation-delay: .3s;
+    }
+
+    .loading span:nth-child(5) {
+        animation-delay: .4s;
+    }
+
+    .loading span:nth-child(6) {
+        animation-delay: .5s;
+    }
+
+    .loading span:nth-child(7) {
+        animation-delay: .6s;
+    }
+
+    @keyframes loading {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(15px);
+        }
+    }
 </style>
 
 
 <body>
 
-    <div id="background-rectangle3">
-        <h5>CANDLE EDU 사용 도움말</h5>
+    <div class="loading" id="background-rectangle3">
+        <span>
+            <h1>CANDLE EDU 사용 도움말</h1>
+        </span>
     </div>
 
     <div id="background-rectangle1" style="margin-top: 130px;">
@@ -149,7 +330,8 @@
 
     <div id="background-rectangle1">
         <h2>&#10068; CANDLE EDU를 어떻게 사용해야 할까요?</h2>
-        <body>       
+
+        <body>
             <h3>1. 멘토/멘티 선택 페이지</h3>
             <img src="../../media/support/main.PNG" style="margin-right:20px; " width="800px">
             <h4>멘토/멘티 페이지에서 자신이 멘토로써 사이트를 이용할 것인지,</h4>
@@ -164,9 +346,6 @@
             <h4>CANDLE EDU의 계정이 없는 사용자의 경우,</h4>
             <h4>로그인 페이지에서 회원가입(Sign up)을 클릭하여 회원가입할 수 있습니다.</h4>
 
-
-
-     
         </body>
     </div>
 
