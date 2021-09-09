@@ -1,10 +1,26 @@
-{% for mentee in mentees %}
-    <h1> 멘티 글 목록 </h1>
-    <div class="card">
-        <div class="card-body">
-            <p class="title"> 제목 : {{ mentee.title }}</p>
-            <p class="user">작성자 : {{ mentee.user }}</p>
-            <p class="recruit_term">모짐 기간 : {{ mentee.recruit_startdate }} ~ {{ mentee.recruit_enddate }} </p>
-        </div>
+{% extends 'base.html' %}
+{% block content %}
+    <link rel="stylesheet" href="../../static/css/mentor_list.css">
+    <div id="nav">
+        <h2>nav 영역</h2>
     </div>
-{% endfor %}
+    <div id="section">
+        <h1> 멘티 글 목록 </h1>
+        {% for mentee in mentees %} 
+            <div class="card">
+                <a href="{% url 'mentee_detail' mentee.id %}" style="text-decoration:none;">
+                <div class="card-body" >
+                    <br>
+                    <p class="title"> {{ mentee.title }}</p>
+                    <p class="user">작성자 : {{ mentee.user }}</p>
+                    <p class="recruit_term">모집 기간 : {{ mentee.recruit_startdate }} ~ {{ mentee.recruit_enddate }} </p>
+                    <br>
+                </div>
+                </a>
+            </div>   
+        {% endfor %}
+        <button class="button" onclick="location.href='/mentee_post'">
+            <h3>글 작성</h3>
+        </button>
+    </div>  
+{% endblock %}

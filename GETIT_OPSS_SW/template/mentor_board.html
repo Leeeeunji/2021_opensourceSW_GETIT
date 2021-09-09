@@ -5,15 +5,22 @@
         <h2>nav 영역</h2>
     </div>
     <div id="section">
-        {% for mentor in mentors %}
-            <h1> 멘토 글 목록 </h1>
+        <h1> 멘토 글 목록 </h1>
+        {% for mentor in mentors %} 
             <div class="card">
-                <div class="card-body">
-                    <p class="title"> 제목 : {{ mentor.title }}</p>
+                <a href="{% url 'mentor_detail' mentor.id %}" style="text-decoration:none;">
+                <div class="card-body" >
+                    <br>
+                    <p class="title"> {{ mentor.title }}</p>
                     <p class="user">작성자 : {{ mentor.user }}</p>
-                    <p class="recruit_term">모짐 기간 : {{ mentor.recruit_startdate }} ~ {{ mentor.recruit_enddate }} </p>
+                    <p class="recruit_term">모집 기간 : {{ mentor.recruit_startdate }} ~ {{ mentor.recruit_enddate }} </p>
+                    <br>
                 </div>
-            </div>
+                </a>
+            </div>   
         {% endfor %}
+        <button class="button" onclick="location.href='/mentor_post'">
+            <h3>글 작성</h3>
+        </button>
     </div>  
 {% endblock %}

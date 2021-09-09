@@ -27,6 +27,7 @@ urlpatterns = [
     path('base/', base, name="base"), 
     path('accounts/', include('accounts.urls')),
 
+    path('', signup, name="signup" ),
     path('signup/', signup, name="signup" ),
     path('login/', login_request, name="login"),
     path('mypage/<str:username>', mypage, name="mypage"),
@@ -35,7 +36,7 @@ urlpatterns = [
     path('mentor_post/', mentor_post, name="mentor_post"),
     path('mentor_list/', mentor_list, name="mentor_list"),
     path('mentor_board/', mentor_board, name="mentor_board"),
-    path('mentor_detail/', mentor_detail, name="mentor_detail"),
+    path('mentor_detail/<str:id>', mentor_detail, name="mentor_detail"),
     path('mentee_post/', mentee_post, name="mentee_post"),
     path('mentee_list/', mentee_list, name="mentee_list"),
     path('mentee_board/', mentee_board, name="mentee_board"),

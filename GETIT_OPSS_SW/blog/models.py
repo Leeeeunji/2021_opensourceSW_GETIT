@@ -41,8 +41,8 @@ class mentee(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) #related_name 필드?
     pub_date = models.DateTimeField(auto_now_add=True) #자동으로 글 올린 날짜 저장. 수정불가 #생성날짜
     
-    recruit_startdate = models.DateField(null=True, default=timezone.now) #모집시작일
-    recruit_endDate = models.DateField(blank=True) #모집종료일
+    #recruit_startdate = models.DateField(null=True) #모집시작일
+    #recruit_endDate = models.DateField(blank=True) #모집종료일
    
     volun_startDate = models.DateField(blank=True) #봉사시작일
     volun_endDate = models.DateField(blank=True) #봉사종료일
@@ -51,7 +51,6 @@ class mentee(models.Model):
     # mentoringEnd_times = models.DateField(null=True, default=timezone.now)      #원하는 멘토링 종료 시각
     study_times = models.TextField(blank=True) #교육을 원하는 시간대
     volun_day = models.TextField(blank=True) #그냥 입력하게 하도록 #봉사요일
-    
 
     mentoringType_Choices = (('Online', '온라인'), ('Offline', '오프라인'))
     mentoringType = models.CharField(max_length=10, choices=mentoringType_Choices)
